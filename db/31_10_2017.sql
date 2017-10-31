@@ -40,6 +40,38 @@ LOCK TABLES `menus` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `profile_meis`
+--
+
+DROP TABLE IF EXISTS `profile_meis`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `profile_meis` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `address` varchar(200) NOT NULL,
+  `operation` varchar(20) NOT NULL,
+  `space` varchar(200) NOT NULL,
+  `contact` varchar(20) NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `menu_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_profile_user` (`user_id`),
+  KEY `fk_profile_nemu` (`menu_id`),
+  CONSTRAINT `fk_profile_nemu` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`),
+  CONSTRAINT `fk_profile_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `profile_meis`
+--
+
+LOCK TABLES `profile_meis` WRITE;
+/*!40000 ALTER TABLE `profile_meis` DISABLE KEYS */;
+/*!40000 ALTER TABLE `profile_meis` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -73,4 +105,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-31  9:56:10
+-- Dump completed on 2017-10-31 10:53:01
