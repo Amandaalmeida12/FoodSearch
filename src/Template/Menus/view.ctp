@@ -31,6 +31,10 @@
             <td><?= $this->Number->format($menu->id) ?></td>
         </tr>
     </table>
+    <div class="row">
+        <h4><?= __('Description') ?></h4>
+        <?= $this->Text->autoParagraph(h($menu->description)); ?>
+    </div>
     <div class="related">
         <h4><?= __('Related Profile Meis') ?></h4>
         <?php if (!empty($menu->profile_meis)): ?>
@@ -43,6 +47,7 @@
                 <th scope="col"><?= __('Contact') ?></th>
                 <th scope="col"><?= __('User Id') ?></th>
                 <th scope="col"><?= __('Menu Id') ?></th>
+                <th scope="col"><?= __('Description') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($menu->profile_meis as $profileMeis): ?>
@@ -54,6 +59,7 @@
                 <td><?= h($profileMeis->contact) ?></td>
                 <td><?= h($profileMeis->user_id) ?></td>
                 <td><?= h($profileMeis->menu_id) ?></td>
+                <td><?= h($profileMeis->description) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'ProfileMeis', 'action' => 'view', $profileMeis->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'ProfileMeis', 'action' => 'edit', $profileMeis->id]) ?>

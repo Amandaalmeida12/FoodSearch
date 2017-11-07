@@ -49,4 +49,8 @@
             <td><?= $this->Number->format($profileMei->id) ?></td>
         </tr>
     </table>
+    <div class="row">
+        <h4><?= __('Description') ?></h4>
+        <?= $this->Text->autoParagraph(h($profileMei->description)); ?>
+    </div>
 </div>

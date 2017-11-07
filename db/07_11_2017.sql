@@ -26,8 +26,9 @@ CREATE TABLE `menus` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `image` varchar(100) NOT NULL,
+  `description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,6 +37,7 @@ CREATE TABLE `menus` (
 
 LOCK TABLES `menus` WRITE;
 /*!40000 ALTER TABLE `menus` DISABLE KEYS */;
+INSERT INTO `menus` VALUES (1,'batata frita','eweewr',''),(2,'nanda','jhujhdsu',''),(3,'suco','nksa','');
 /*!40000 ALTER TABLE `menus` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,12 +56,13 @@ CREATE TABLE `profile_meis` (
   `contact` varchar(20) NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `menu_id` int(10) unsigned NOT NULL,
+  `description` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_profile_user` (`user_id`),
   KEY `fk_profile_nemu` (`menu_id`),
   CONSTRAINT `fk_profile_nemu` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`),
   CONSTRAINT `fk_profile_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,6 +71,7 @@ CREATE TABLE `profile_meis` (
 
 LOCK TABLES `profile_meis` WRITE;
 /*!40000 ALTER TABLE `profile_meis` DISABLE KEYS */;
+INSERT INTO `profile_meis` VALUES (1,'nadadadfd','uiuwiuwqi','iieroewpo','134RJ',1,1,''),(2,'er54er','edr4e','ert','ert',2,1,'');
 /*!40000 ALTER TABLE `profile_meis` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,7 +88,7 @@ CREATE TABLE `users` (
   `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,6 +97,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Amanda Isabel','amanda@amanda.com','123'),(2,'jose Vinicius','vinicius@njenh.coikm','\'12');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -105,4 +110,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-31 10:53:01
+-- Dump completed on 2017-11-07  8:25:10

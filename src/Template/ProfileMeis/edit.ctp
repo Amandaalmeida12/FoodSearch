@@ -31,6 +31,7 @@
             echo $this->Form->control('contact');
             echo $this->Form->control('user_id', ['options' => $users]);
             echo $this->Form->control('menu_id', ['options' => $menus]);
+            echo $this->Form->control('description');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

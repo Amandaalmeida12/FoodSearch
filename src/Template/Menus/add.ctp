@@ -19,6 +19,7 @@
         <?php
             echo $this->Form->control('name');
             echo $this->Form->control('image');
+            echo $this->Form->control('description');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

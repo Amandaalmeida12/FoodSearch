@@ -79,6 +79,11 @@ class ProfileMeisTable extends Table
             ->requirePresence('contact', 'create')
             ->notEmpty('contact');
 
+        $validator
+            ->scalar('description')
+            ->requirePresence('description', 'create')
+            ->notEmpty('description');
+
         return $validator;
     }
 

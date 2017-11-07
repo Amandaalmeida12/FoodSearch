@@ -13,6 +13,7 @@ use Cake\ORM\Entity;
  * @property string $contact
  * @property int $user_id
  * @property int $menu_id
+ * @property string $description
  *
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Menu $menu
@@ -36,6 +37,7 @@ class ProfileMei extends Entity
         'contact' => true,
         'user_id' => true,
         'menu_id' => true,
+        'description' => true,
         'user' => true,
         'menu' => true
     ];

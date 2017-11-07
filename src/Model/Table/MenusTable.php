@@ -63,6 +63,11 @@ class MenusTable extends Table
             ->requirePresence('image', 'create')
             ->notEmpty('image');
 
+        $validator
+            ->scalar('description')
+            ->requirePresence('description', 'create')
+            ->notEmpty('description');
+
         return $validator;
     }
 }

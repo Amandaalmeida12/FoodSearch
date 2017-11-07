@@ -17,7 +17,8 @@ class MenusControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.menus',
-        'app.profile_meis'
+        'app.profile_meis',
+        'app.users'
     ];
 
     /**
