@@ -33,7 +33,7 @@ class UsersTable extends Table
         parent::initialize($config);
 
         $this->setTable('users');
-        $this->setDisplayField('name');
+        $this->setDisplayField('username');
         $this->setPrimaryKey('id');
 
         $this->hasMany('ProfileMeis', [
@@ -49,26 +49,39 @@ class UsersTable extends Table
      */
     public function validationDefault(Validator $validator)
     {
+        
+        
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
-
         $validator
             ->scalar('name')
             ->requirePresence('name', 'create')
             ->notEmpty('name');
-
+            $validator
+            ->scalar('username')
+            ->requirePresence('username', 'create')
+            ->notEmpty('username');
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
             ->notEmpty('email');
-
         $validator
             ->scalar('password')
             ->requirePresence('password', 'create')
             ->notEmpty('password');
+        $validator
+             ->add(
+                'confirm_password',
+                'compareWith',[
+                    'rule'=>['compareWith','password'],
+                        'message'=>'Senha incorreta!'
+                    ]
 
+                );
+           
         return $validator;
+
     }
 
     /**
@@ -80,6 +93,7 @@ class UsersTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
+        $rules->add($rules->isUnique(['username']));
         $rules->add($rules->isUnique(['email']));
 
         return $rules;

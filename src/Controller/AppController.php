@@ -13,10 +13,8 @@
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
 namespace App\Controller;
-
 use Cake\Controller\Controller;
 use Cake\Event\Event;
-
 /**
  * Application Controller
  *
@@ -27,7 +25,6 @@ use Cake\Event\Event;
  */
 class AppController extends Controller
 {
-
     /**
      * Initialization hook method.
      *
@@ -40,10 +37,26 @@ class AppController extends Controller
     public function initialize()
     {
         parent::initialize();
-
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-
+        $this->loadComponent('Auth',[
+            'authenticate'=>[
+                'Form'=>[
+                    'fields'=>[
+                        'username'=>'username',
+                        'password'=>'password'
+                    ]
+                ]
+            ],
+            'loginRedirect'=>[
+                'controller'=>'Users',
+                'action'=>'index'
+            ],
+            'logoutRedirect'=>[
+                'controller'=>'Users',
+                'action'=>'login'
+            ]
+        ]);
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -51,7 +64,6 @@ class AppController extends Controller
         //$this->loadComponent('Security');
         //$this->loadComponent('Csrf');
     }
-
     /**
      * Before render callback.
      *
@@ -68,5 +80,9 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
+    }
+    public function beforeFilter(Event $event)
+    {
+        $this->set('username',$this->Auth->user('username'));
     }
 }

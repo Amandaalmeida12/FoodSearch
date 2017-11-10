@@ -33,7 +33,7 @@ class MenusTable extends Table
         parent::initialize($config);
 
         $this->setTable('menus');
-        $this->setDisplayField('name');
+        $this->setDisplayField('title');
         $this->setPrimaryKey('id');
 
         $this->hasMany('ProfileMeis', [
@@ -54,9 +54,9 @@ class MenusTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('name')
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->scalar('title')
+            ->requirePresence('title', 'create')
+            ->notEmpty('title');
 
         $validator
             ->scalar('image')

@@ -16,11 +16,11 @@
     </ul>
 </nav>
 <div class="menus view large-9 medium-8 columns content">
-    <h3><?= h($menu->name) ?></h3>
+    <h3><?= h($menu->title) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($menu->name) ?></td>
+            <th scope="row"><?= __('Title') ?></th>
+            <td><?= h($menu->title) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Image') ?></th>

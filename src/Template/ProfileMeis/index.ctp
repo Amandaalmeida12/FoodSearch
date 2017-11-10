@@ -37,8 +37,8 @@
                 <td><?= h($profileMei->operation) ?></td>
                 <td><?= h($profileMei->space) ?></td>
                 <td><?= h($profileMei->contact) ?></td>
-                <td><?= $profileMei->has('user') ? $this->Html->link($profileMei->user->name, ['controller' => 'Users', 'action' => 'view', $profileMei->user->id]) : '' ?></td>
-                <td><?= $profileMei->has('menu') ? $this->Html->link($profileMei->menu->name, ['controller' => 'Menus', 'action' => 'view', $profileMei->menu->id]) : '' ?></td>
+                <td><?= $this->Number->format($profileMei->user_id) ?></td>
+                <td><?= $profileMei->has('menu') ? $this->Html->link($profileMei->menu->title, ['controller' => 'Menus', 'action' => 'view', $profileMei->menu->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $profileMei->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $profileMei->id]) ?>

@@ -18,7 +18,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('title') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('image') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -27,7 +27,7 @@
             <?php foreach ($menus as $menu): ?>
             <tr>
                 <td><?= $this->Number->format($menu->id) ?></td>
-                <td><?= h($menu->name) ?></td>
+                <td><?= h($menu->title) ?></td>
                 <td><?= h($menu->image) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $menu->id]) ?>

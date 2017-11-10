@@ -23,7 +23,7 @@
     <fieldset>
         <legend><?= __('Edit Menu') ?></legend>
         <?php
-            echo $this->Form->control('name');
+            echo $this->Form->control('title');
             echo $this->Form->control('image');
             echo $this->Form->control('description');
         ?>

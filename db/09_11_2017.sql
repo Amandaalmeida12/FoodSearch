@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.19, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
 --
 -- Host: localhost    Database: foodsearch_db
 -- ------------------------------------------------------
--- Server version	5.7.19-0ubuntu0.16.04.1
+-- Server version	5.7.20-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,11 +24,11 @@ DROP TABLE IF EXISTS `menus`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `menus` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
+  `title` varchar(100) NOT NULL,
   `image` varchar(100) NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `menus` (
 
 LOCK TABLES `menus` WRITE;
 /*!40000 ALTER TABLE `menus` DISABLE KEYS */;
-INSERT INTO `menus` VALUES (1,'batata frita','eweewr',''),(2,'nanda','jhujhdsu',''),(3,'suco','nksa','');
+INSERT INTO `menus` VALUES (1,'batata frita','eweewr','eq'),(2,'nanda','jhujhdsu',''),(3,'suco','nksa',''),(4,'aand, ','mw\'','m,w');
 /*!40000 ALTER TABLE `menus` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +62,7 @@ CREATE TABLE `profile_meis` (
   KEY `fk_profile_nemu` (`menu_id`),
   CONSTRAINT `fk_profile_nemu` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`),
   CONSTRAINT `fk_profile_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +71,7 @@ CREATE TABLE `profile_meis` (
 
 LOCK TABLES `profile_meis` WRITE;
 /*!40000 ALTER TABLE `profile_meis` DISABLE KEYS */;
-INSERT INTO `profile_meis` VALUES (1,'nadadadfd','uiuwiuwqi','iieroewpo','134RJ',1,1,''),(2,'er54er','edr4e','ert','ert',2,1,'');
+INSERT INTO `profile_meis` VALUES (1,'nadadadfd','uiuwiuwqi','iieroewpo','134RJ',1,1,''),(2,'er54er','edr4e','ert','ert',2,1,''),(3,'nkm','m,s','lms','lm',3,3,'\r\nbb'),(4,'jebn','uqhj2n','ubwjqnm','ne',8,3,'2e\''),(5,'jebn','uqhj2n','ubwjqnm','ne',8,3,'2e\'');
 /*!40000 ALTER TABLE `profile_meis` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,11 +84,12 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +98,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Amanda Isabel','amanda@amanda.com','123'),(2,'jose Vinicius','vinicius@njenh.coikm','\'12');
+INSERT INTO `users` VALUES (1,'Amanda Isabel','amanda@amanda.com','$2y$10$0elmYPYDd4Rm0VHdn0lvVeLlGEUtgyYWGFocioSQeNTZYQRZC1QSq','amanda castro'),(2,'jose Vinicius','vinicius@njenh.coikm','$2y$10$yGcyoLsLROfBPXfJFpl0DOxVLjXPl9bl1EmSFX0qv.Av6FzTHnZIG','sa'),(3,'nada','msn@nd.cm','nww',''),(4,'amandaisabel','alama@mans.com','123',''),(5,'amanda','nanas@knsa.oc','123','ANA'),(6,'amandasa','amandjdok@kmsa.ck','123','amanda isabel'),(7,'nmne','khqwn@jnms.com','123','anakhn'),(8,'amandacastro','amandacastro@dnd.cd','$2y$10$ZKvA6W6UChJ9uCzx3PNvuuiXRvmpFGdr8vHIFy4pynwTiLLHBpjXW','Amanda');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -110,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-07  8:25:10
+-- Dump completed on 2017-11-09 22:02:33

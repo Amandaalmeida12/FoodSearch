@@ -16,11 +16,15 @@
     </ul>
 </nav>
 <div class="users view large-9 medium-8 columns content">
-    <h3><?= h($user->name) ?></h3>
+    <h3><?= h($user->username) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
             <td><?= h($user->name) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Username') ?></th>
+            <td><?= h($user->username) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Email') ?></th>
@@ -30,6 +34,7 @@
             <th scope="row"><?= __('Password') ?></th>
             <td><?= h($user->password) ?></td>
         </tr>
+       
         <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($user->id) ?></td>
@@ -47,6 +52,7 @@
                 <th scope="col"><?= __('Contact') ?></th>
                 <th scope="col"><?= __('User Id') ?></th>
                 <th scope="col"><?= __('Menu Id') ?></th>
+                <th scope="col"><?= __('Description') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($user->profile_meis as $profileMeis): ?>
@@ -58,6 +64,7 @@
                 <td><?= h($profileMeis->contact) ?></td>
                 <td><?= h($profileMeis->user_id) ?></td>
                 <td><?= h($profileMeis->menu_id) ?></td>
+                <td><?= h($profileMeis->description) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'ProfileMeis', 'action' => 'view', $profileMeis->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'ProfileMeis', 'action' => 'edit', $profileMeis->id]) ?>

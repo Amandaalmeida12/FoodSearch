@@ -37,16 +37,16 @@
             <td><?= h($profileMei->contact) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('User') ?></th>
-            <td><?= $profileMei->has('user') ? $this->Html->link($profileMei->user->name, ['controller' => 'Users', 'action' => 'view', $profileMei->user->id]) : '' ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Menu') ?></th>
-            <td><?= $profileMei->has('menu') ? $this->Html->link($profileMei->menu->name, ['controller' => 'Menus', 'action' => 'view', $profileMei->menu->id]) : '' ?></td>
+            <td><?= $profileMei->has('menu') ? $this->Html->link($profileMei->menu->title, ['controller' => 'Menus', 'action' => 'view', $profileMei->menu->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($profileMei->id) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('User Id') ?></th>
+            <td><?= $this->Number->format($profileMei->user_id) ?></td>
         </tr>
     </table>
     <div class="row">
