@@ -48,8 +48,12 @@ class AppController extends Controller
                     ]
                 ]
             ],
+            'loginAction' => [
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
             'loginRedirect'=>[
-                'controller'=>'Users',
+                'controller'=>'ProfileMeis',
                 'action'=>'index'
             ],
             'logoutRedirect'=>[
