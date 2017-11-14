@@ -26,6 +26,8 @@
                 <th scope="col"><?= $this->Paginator->sort('contact') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('menu_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('lat') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('lng') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -37,8 +39,10 @@
                 <td><?= h($profileMei->operation) ?></td>
                 <td><?= h($profileMei->space) ?></td>
                 <td><?= h($profileMei->contact) ?></td>
-                <td><?= $this->Number->format($profileMei->user_id) ?></td>
+                <td><?= $profileMei->has('user') ? $this->Html->link($profileMei->user->username, ['controller' => 'Users', 'action' => 'view', $profileMei->user->id]) : '' ?></td>
                 <td><?= $profileMei->has('menu') ? $this->Html->link($profileMei->menu->title, ['controller' => 'Menus', 'action' => 'view', $profileMei->menu->id]) : '' ?></td>
+                <td><?= $this->Number->format($profileMei->lat) ?></td>
+                <td><?= $this->Number->format($profileMei->lng) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $profileMei->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $profileMei->id]) ?>

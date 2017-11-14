@@ -17,6 +17,7 @@
         <li><?= $this->Html->link(__('New Menu'), ['controller' => 'Menus', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
+
 <div class="profileMeis view large-9 medium-8 columns content">
     <h3><?= h($profileMei->id) ?></h3>
     <table class="vertical-table">
@@ -37,6 +38,10 @@
             <td><?= h($profileMei->contact) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('User') ?></th>
+            <td><?= $profileMei->has('user') ? $this->Html->link($profileMei->user->username, ['controller' => 'Users', 'action' => 'view', $profileMei->user->id]) : '' ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Menu') ?></th>
             <td><?= $profileMei->has('menu') ? $this->Html->link($profileMei->menu->title, ['controller' => 'Menus', 'action' => 'view', $profileMei->menu->id]) : '' ?></td>
         </tr>
@@ -45,8 +50,12 @@
             <td><?= $this->Number->format($profileMei->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('User Id') ?></th>
-            <td><?= $this->Number->format($profileMei->user_id) ?></td>
+            <th scope="row"><?= __('Lat') ?></th>
+            <td><?= $this->Number->format($profileMei->lat) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Lng') ?></th>
+            <td><?= $this->Number->format($profileMei->lng) ?></td>
         </tr>
     </table>
     <div class="row">

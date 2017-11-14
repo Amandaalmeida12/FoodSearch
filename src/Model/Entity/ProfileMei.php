@@ -14,6 +14,8 @@ use Cake\ORM\Entity;
  * @property int $user_id
  * @property int $menu_id
  * @property string $description
+ * @property float $lat
+ * @property float $lng
  *
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Menu $menu
@@ -38,6 +40,8 @@ class ProfileMei extends Entity
         'user_id' => true,
         'menu_id' => true,
         'description' => true,
+        'lat' => true,
+        'lng' => true,
         'user' => true,
         'menu' => true
     ];

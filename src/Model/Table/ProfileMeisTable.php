@@ -84,6 +84,16 @@ class ProfileMeisTable extends Table
             ->requirePresence('description', 'create')
             ->notEmpty('description');
 
+        $validator
+            ->numeric('lat')
+            ->requirePresence('lat', 'create')
+            ->notEmpty('lat');
+
+        $validator
+            ->numeric('lng')
+            ->requirePresence('lng', 'create')
+            ->notEmpty('lng');
+
         return $validator;
     }
 

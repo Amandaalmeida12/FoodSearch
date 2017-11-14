@@ -4,16 +4,26 @@
  * @var \App\Model\Entity\ProfileMei $profileMei
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Profile Meis'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Menus'), ['controller' => 'Menus', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Menu'), ['controller' => 'Menus', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
+ <script type="text/javascript">
+
+    
+        function myMap() {
+            var myCenter = new google.maps.LatLng(-7.92323,-34.92004);
+            var mapCanvas = document.getElementById("map");
+            var mapOptions = {center: myCenter, zoom: 11};
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+
+            map.addListener('click', function(e) {
+                document.getElementById("lat").value = e.latLng.lat();
+                document.getElementById("lng").value = e.latLng.lng();
+            });
+
+        }
+</script>
+
+<div id="map" style="width:50%;height:500px"></div>
+
+<?= $this->Html->script('https://maps.googleapis.com/maps/api/js?key=AIzaSyBfZ3hsTdc5DDfx1IBQlh05N-re23793BU&callback=myMap'); ?>
 <div class="profileMeis form large-9 medium-8 columns content">
     <?= $this->Form->create($profileMei) ?>
     <fieldset>
@@ -23,9 +33,11 @@
             echo $this->Form->control('operation');
             echo $this->Form->control('space');
             echo $this->Form->control('contact');
+            echo $this->Form->control('description');
+            echo $this->Form->control('lat');
+            echo $this->Form->control('lng');
             echo $this->Form->control('user_id');
             echo $this->Form->control('menu_id', ['options' => $menus]);
-            echo $this->Form->control('description');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
