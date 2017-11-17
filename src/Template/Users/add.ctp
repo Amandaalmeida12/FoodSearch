@@ -15,13 +15,13 @@
 <div class="users form large-9 medium-8 columns content">
     <?= $this->Form->create($user) ?>
     <fieldset>
-        <legend><?= __('Add User') ?></legend>
+        <legend><?= __('Adicionar Usuário') ?></legend>
         <?php
             
-            echo $this->Form->control('username');
+            echo $this->Form->control('Nome');
             echo $this->Form->control('email');
-            echo $this->Form->control('password');
-            echo $this->Form->control('confirm_password',['type'=>'password']);
+            echo $this->Form->control('Senha');
+            echo $this->Form->control('Confirmar Senha',['type'=>'password']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
