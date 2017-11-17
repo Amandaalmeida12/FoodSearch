@@ -21,10 +21,6 @@
     <h3><?= h($profileMei->id) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Path') ?></th>
-            <td><?= h($profileMei->path) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Address') ?></th>
             <td><?= h($profileMei->address) ?></td>
         </tr>
@@ -53,10 +49,6 @@
             <td><?= $this->Number->format($profileMei->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Image') ?></th>
-            <td><?= $this->Number->format($profileMei->image) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Lat') ?></th>
             <td><?= $this->Number->format($profileMei->lat) ?></td>
         </tr>
@@ -65,4 +57,8 @@
             <td><?= $this->Number->format($profileMei->lng) ?></td>
         </tr>
     </table>
+    <div class="row">
+        <h4><?= __('Description') ?></h4>
+        <?= $this->Text->autoParagraph(h($profileMei->description)); ?>
+    </div>
 </div>

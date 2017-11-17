@@ -54,9 +54,9 @@ class MenusTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('name')
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->scalar('title')
+            ->requirePresence('title', 'create')
+            ->notEmpty('title');
 
         $validator
             ->integer('image')

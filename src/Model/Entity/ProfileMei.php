@@ -7,16 +7,15 @@ use Cake\ORM\Entity;
  * ProfileMei Entity
  *
  * @property int $id
- * @property int $image
- * @property string $path
  * @property string $address
  * @property string $operation
  * @property string $space
  * @property string $contact
- * @property float $lat
- * @property float $lng
  * @property int $user_id
  * @property int $menu_id
+ * @property string $description
+ * @property float $lat
+ * @property float $lng
  *
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Menu $menu
@@ -34,16 +33,15 @@ class ProfileMei extends Entity
      * @var array
      */
     protected $_accessible = [
-        'image' => true,
-        'path' => true,
         'address' => true,
         'operation' => true,
         'space' => true,
         'contact' => true,
-        'lat' => true,
-        'lng' => true,
         'user_id' => true,
         'menu_id' => true,
+        'description' => true,
+        'lat' => true,
+        'lng' => true,
         'user' => true,
         'menu' => true
     ];

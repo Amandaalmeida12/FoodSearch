@@ -25,16 +25,15 @@
     <fieldset>
         <legend><?= __('Edit Profile Mei') ?></legend>
         <?php
-            echo $this->Form->control('image');
-            echo $this->Form->control('path');
             echo $this->Form->control('address');
             echo $this->Form->control('operation');
             echo $this->Form->control('space');
             echo $this->Form->control('contact');
-            echo $this->Form->control('lat');
-            echo $this->Form->control('lng');
             echo $this->Form->control('user_id', ['options' => $users]);
             echo $this->Form->control('menu_id', ['options' => $menus]);
+            echo $this->Form->control('description');
+            echo $this->Form->control('lat');
+            echo $this->Form->control('lng');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
