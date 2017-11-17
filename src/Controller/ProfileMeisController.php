@@ -18,7 +18,7 @@ class ProfileMeisController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
-     public $components = array('RequestHandler');
+
     public function index()
     {
         $this->paginate = [
@@ -29,22 +29,17 @@ class ProfileMeisController extends AppController
         $this->set(compact('profileMeis'));
         $this->set('_serialize', ['profileMeis']);
     }
-    public function mapa(){
-
+     public function mapa(){
     }
      public function Profilejson()
     {
         $this->autoRender = false;
         $profileMeis = $this->ProfileMeis->find()->select(['ProfileMeis.address','ProfileMeis.operation','ProfileMeis.space','ProfileMeis.contact','ProfileMeis.description','ProfileMeis.lat', 'ProfileMeis.lng']);
-
         $resultJ = json_encode($profileMeis);
-
         $this->response->type('json');
         $this->response->body($resultJ);
         return $this->response;
     }
-
-
 
     /**
      * View method

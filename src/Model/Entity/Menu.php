@@ -7,8 +7,9 @@ use Cake\ORM\Entity;
  * Menu Entity
  *
  * @property int $id
- * @property string $title
- * @property string $image
+ * @property string $name
+ * @property int $image
+ * @property string $path
  * @property string $description
  *
  * @property \App\Model\Entity\ProfileMei[] $profile_meis
@@ -26,8 +27,9 @@ class Menu extends Entity
      * @var array
      */
     protected $_accessible = [
-        'title' => true,
+        'name' => true,
         'image' => true,
+        'path' => true,
         'description' => true,
         'profile_meis' => true
     ];

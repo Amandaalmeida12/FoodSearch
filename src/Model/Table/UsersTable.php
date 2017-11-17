@@ -49,39 +49,35 @@ class UsersTable extends Table
      */
     public function validationDefault(Validator $validator)
     {
-        
-        
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
+
         $validator
-            ->scalar('name')
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
-            $validator
             ->scalar('username')
             ->requirePresence('username', 'create')
             ->notEmpty('username');
+
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
-            ->notEmpty('email');
+            ->notEmpty('email')
+            ->add('email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
+
         $validator
             ->scalar('password')
             ->requirePresence('password', 'create')
             ->notEmpty('password');
         $validator
-             ->add(
+            ->add(
                 'confirm_password',
                 'compareWith',[
                     'rule'=>['compareWith','password'],
-                        'message'=>'Senha incorreta!'
-                    ]
+                    'message'=>'Passwords not qual.'
+                ]
+            );
 
-                );
-           
         return $validator;
-
     }
 
     /**

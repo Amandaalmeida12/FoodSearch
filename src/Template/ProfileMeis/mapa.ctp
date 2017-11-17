@@ -1,17 +1,44 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ * @var \App\Model\Entity\Marker[]|\Cake\Collection\CollectionInterface $markers
+ */
+?>
 
-<div id="map" style="width:50%;height:350px"></div>
+<?= $this->Html->script('https://maps.googleapis.com/maps/api/js?key=AIzaSyBfZ3hsTdc5DDfx1IBQlh05N-re23793BU'); ?>
 
-<script>
-function myMap() {
-  var myCenter = new google.maps.LatLng(-7.92323,-34.92004);
-  var mapCanvas = document.getElementById("map");
-  var mapOptions = {center: myCenter, zoom: 5};
-  var map = new google.maps.Map(mapCanvas, mapOptions);
-  var marker = new google.maps.Marker({position:myCenter});
-  marker.setMap(map);
-}
-function createMarker(latlng,operation,adress) {
-          var html = "<b>" + address+ "</b> <br/>" + operation;
+
+
+<script type="text/javascript">
+
+    var map;
+    var profile_meis = [];
+    var infoWindow;
+    var locationSelect;
+
+
+
+
+    function carregaMapa() {
+      map = new google.maps.Map(document.getElementById("map"), {
+            center: new google.maps.LatLng(-7.92323,-34.92004),
+            zoom: 11,
+            mapTypeId: 'roadmap',
+            mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU}
+          });
+          infoWindow = new google.maps.InfoWindow();
+
+          locationSelect = document.getElementById("locationSelect");
+          locationSelect.onchange = function() {
+            var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
+            if (markerNum != "none"){
+              google.maps.event.trigger(profile_meis[markerNum], 'click');
+            }
+          };
+    }
+
+    function createMarker(latlng, operation, address) {
+          var html = "<b>" + operation + "</b> <br/>" + address;
           var marker = new google.maps.Marker({
             map: map,
             position: latlng
@@ -20,17 +47,29 @@ function createMarker(latlng,operation,adress) {
             infoWindow.setContent(html);
             infoWindow.open(map, marker);
           });
-          markers
-      .push(marker);
-}
-$.getJSON('http://localhost:8765/profile-meis/Profilejson', function(data) {
+          profile_meis.push(marker);
+        }
+
+    $.getJSON('http://localhost:8765/profile-meis/Profilejson', function(data) {
         for (var i = 0; i < data.length; i++) {
             var latlng = new google.maps.LatLng(data[i].lat,data[i].lng)
-            createMarker(latlng, data[i].address, data[i].operation);
+            createMarker(latlng, data[i].name, data[i].address);
         }
-});
+    });
+
 </script>
 
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfZ3hsTdc5DDfx1IBQlh05N-re23793BU&callback=myMap"></script>
+<div class="markers index large-9 medium-8 columns content">
+    
+
+
+    <div id="map" style="width:50%;height:500px">
+        <script>
+            carregaMapa();
+        </script>
+    </div>
+
+</div>
+

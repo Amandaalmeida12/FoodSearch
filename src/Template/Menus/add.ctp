@@ -17,8 +17,9 @@
     <fieldset>
         <legend><?= __('Add Menu') ?></legend>
         <?php
-            echo $this->Form->control('title');
+            echo $this->Form->control('name');
             echo $this->Form->control('image');
+            echo $this->Form->control('path');
             echo $this->Form->control('description');
         ?>
     </fieldset>

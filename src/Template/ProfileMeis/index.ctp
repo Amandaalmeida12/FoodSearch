@@ -20,14 +20,16 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('image') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('path') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('address') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('operation') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('space') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('contact') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('menu_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('lat') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('lng') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('menu_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -35,14 +37,16 @@
             <?php foreach ($profileMeis as $profileMei): ?>
             <tr>
                 <td><?= $this->Number->format($profileMei->id) ?></td>
+                <td><?= $this->Number->format($profileMei->image) ?></td>
+                <td><?= h($profileMei->path) ?></td>
                 <td><?= h($profileMei->address) ?></td>
                 <td><?= h($profileMei->operation) ?></td>
                 <td><?= h($profileMei->space) ?></td>
                 <td><?= h($profileMei->contact) ?></td>
-                <td><?= $profileMei->has('user') ? $this->Html->link($profileMei->user->username, ['controller' => 'Users', 'action' => 'view', $profileMei->user->id]) : '' ?></td>
-                <td><?= $profileMei->has('menu') ? $this->Html->link($profileMei->menu->title, ['controller' => 'Menus', 'action' => 'view', $profileMei->menu->id]) : '' ?></td>
                 <td><?= $this->Number->format($profileMei->lat) ?></td>
                 <td><?= $this->Number->format($profileMei->lng) ?></td>
+                <td><?= $profileMei->has('user') ? $this->Html->link($profileMei->user->username, ['controller' => 'Users', 'action' => 'view', $profileMei->user->id]) : '' ?></td>
+                <td><?= $profileMei->has('menu') ? $this->Html->link($profileMei->menu->title, ['controller' => 'Menus', 'action' => 'view', $profileMei->menu->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $profileMei->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $profileMei->id]) ?>

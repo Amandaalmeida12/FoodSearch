@@ -60,6 +60,16 @@ class ProfileMeisTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
+            ->integer('image')
+            ->requirePresence('image', 'create')
+            ->notEmpty('image');
+
+        $validator
+            ->scalar('path')
+            ->requirePresence('path', 'create')
+            ->notEmpty('path');
+
+        $validator
             ->scalar('address')
             ->requirePresence('address', 'create')
             ->notEmpty('address');
@@ -78,11 +88,6 @@ class ProfileMeisTable extends Table
             ->scalar('contact')
             ->requirePresence('contact', 'create')
             ->notEmpty('contact');
-
-        $validator
-            ->scalar('description')
-            ->requirePresence('description', 'create')
-            ->notEmpty('description');
 
         $validator
             ->numeric('lat')

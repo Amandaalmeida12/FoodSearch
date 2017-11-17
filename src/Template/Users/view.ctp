@@ -19,10 +19,6 @@
     <h3><?= h($user->username) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($user->name) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Username') ?></th>
             <td><?= h($user->username) ?></td>
         </tr>
@@ -34,7 +30,6 @@
             <th scope="row"><?= __('Password') ?></th>
             <td><?= h($user->password) ?></td>
         </tr>
-       
         <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($user->id) ?></td>
@@ -46,25 +41,31 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Image') ?></th>
+                <th scope="col"><?= __('Path') ?></th>
                 <th scope="col"><?= __('Address') ?></th>
                 <th scope="col"><?= __('Operation') ?></th>
                 <th scope="col"><?= __('Space') ?></th>
                 <th scope="col"><?= __('Contact') ?></th>
+                <th scope="col"><?= __('Lat') ?></th>
+                <th scope="col"><?= __('Lng') ?></th>
                 <th scope="col"><?= __('User Id') ?></th>
                 <th scope="col"><?= __('Menu Id') ?></th>
-                <th scope="col"><?= __('Description') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($user->profile_meis as $profileMeis): ?>
             <tr>
                 <td><?= h($profileMeis->id) ?></td>
+                <td><?= h($profileMeis->image) ?></td>
+                <td><?= h($profileMeis->path) ?></td>
                 <td><?= h($profileMeis->address) ?></td>
                 <td><?= h($profileMeis->operation) ?></td>
                 <td><?= h($profileMeis->space) ?></td>
                 <td><?= h($profileMeis->contact) ?></td>
+                <td><?= h($profileMeis->lat) ?></td>
+                <td><?= h($profileMeis->lng) ?></td>
                 <td><?= h($profileMeis->user_id) ?></td>
                 <td><?= h($profileMeis->menu_id) ?></td>
-                <td><?= h($profileMeis->description) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'ProfileMeis', 'action' => 'view', $profileMeis->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'ProfileMeis', 'action' => 'edit', $profileMeis->id]) ?>

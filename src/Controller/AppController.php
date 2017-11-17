@@ -31,7 +31,7 @@ class AppController extends Controller
      * Use this method to add common initialization code like loading components.
      *
      * e.g. `$this->loadComponent('Security');`
-     *
+     *.
      * @return void
      */
     public function initialize()
@@ -40,18 +40,14 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $this->loadComponent('Auth',[
-            'authenticate'=>[
-                'Form'=>[
+            'authenticate'=> [
+                'Form' => [
                     'fields'=>[
-                        'username'=>'username',
-                        'password'=>'password'
-                    ]
+                    'username'=> 'username',
+                    'password'=>'password'
                 ]
-            ],
-            'loginAction' => [
-                'controller' => 'Users',
-                'action' => 'login'
-            ],
+            ]
+        ],
             'loginRedirect'=>[
                 'controller'=>'ProfileMeis',
                 'action'=>'index'
