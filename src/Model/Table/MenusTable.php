@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Menus Model
  *
- * @property \App\Model\Table\ProfileMeisTable|\Cake\ORM\Association\HasMany $ProfileMeis
+ * @property \App\Model\Table\ProfileMenusTable|\Cake\ORM\Association\HasMany $ProfileMenus
  *
  * @method \App\Model\Entity\Menu get($primaryKey, $options = [])
  * @method \App\Model\Entity\Menu newEntity($data = null, array $options = [])
@@ -35,8 +35,9 @@ class MenusTable extends Table
         $this->setTable('menus');
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
+        $this->addBehavior('Timestamp');
 
-        $this->hasMany('ProfileMeis', [
+        $this->hasMany('ProfileMenus', [
             'foreignKey' => 'menu_id'
         ]);
     }
@@ -59,19 +60,25 @@ class MenusTable extends Table
             ->notEmpty('title');
 
         $validator
-            ->integer('image')
-            ->requirePresence('image', 'create')
-            ->notEmpty('image');
+            ->numeric('price')
+            ->allowEmpty('price');
 
         $validator
-            ->scalar('path')
-            ->requirePresence('path', 'create')
-            ->notEmpty('path');
+            ->scalar('category')
+            ->requirePresence('category', 'create')
+            ->notEmpty('category');
 
         $validator
             ->scalar('description')
-            ->requirePresence('description', 'create')
-            ->notEmpty('description');
+            ->allowEmpty('description');
+
+        $validator
+            ->scalar('photo')
+            ->allowEmpty('photo');
+
+        $validator
+            ->scalar('photo_dir')
+            ->allowEmpty('photo_dir');
 
         return $validator;
     }

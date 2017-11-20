@@ -49,7 +49,7 @@ class AppController extends Controller
             ]
         ],
             'loginRedirect'=>[
-                'controller'=>'ProfileMeis',
+                'controller'=>'Profiles',
                 'action'=>'index'
             ],
             'logoutRedirect'=>[

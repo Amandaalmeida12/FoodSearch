@@ -8,8 +8,8 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Menu'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Profile Meis'), ['controller' => 'ProfileMeis', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Profile Mei'), ['controller' => 'ProfileMeis', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Profile Menus'), ['controller' => 'ProfileMenus', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Profile Menu'), ['controller' => 'ProfileMenus', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="menus index large-9 medium-8 columns content">
@@ -19,8 +19,10 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('title') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('image') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('path') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('price') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('category') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('photo') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('photo_dir') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -29,8 +31,10 @@
             <tr>
                 <td><?= $this->Number->format($menu->id) ?></td>
                 <td><?= h($menu->title) ?></td>
-                <td><?= $this->Number->format($menu->image) ?></td>
-                <td><?= h($menu->path) ?></td>
+                <td><?= $this->Number->format($menu->price) ?></td>
+                <td><?= h($menu->category) ?></td>
+                <td><?= h($menu->photo) ?></td>
+                <td><?php echo $this->Html->image($menu->photo); ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $menu->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $menu->id]) ?>

@@ -14,8 +14,8 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Profile Meis'), ['controller' => 'ProfileMeis', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Profile Mei'), ['controller' => 'ProfileMeis', 'action' => 'add']) ?></li>
+          <li><?= $this->Html->link(__('List Profiles'), ['controller' => 'Profiles', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Profile'), ['controller' => 'Profiles', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="users form large-9 medium-8 columns content">

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.19, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
 --
 -- Host: localhost    Database: foodsearch_db
 -- ------------------------------------------------------
--- Server version	5.7.19-0ubuntu0.16.04.1
+-- Server version	5.7.20-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,7 +29,7 @@ CREATE TABLE `menus` (
   `path` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,43 +38,70 @@ CREATE TABLE `menus` (
 
 LOCK TABLES `menus` WRITE;
 /*!40000 ALTER TABLE `menus` DISABLE KEYS */;
-INSERT INTO `menus` VALUES (6,'shdgg',2,'bgvbv','gngh');
+INSERT INTO `menus` VALUES (7,'sam',3,'jbn','n ');
 /*!40000 ALTER TABLE `menus` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `profile_meis`
+-- Table structure for table `profile_menus`
 --
 
-DROP TABLE IF EXISTS `profile_meis`;
+DROP TABLE IF EXISTS `profile_menus`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `profile_meis` (
+CREATE TABLE `profile_menus` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `profile_id` int(10) unsigned NOT NULL,
+  `menu_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_profile_id` (`profile_id`),
+  KEY `fk_profile_menu` (`menu_id`),
+  CONSTRAINT `fk_profile_id` FOREIGN KEY (`profile_id`) REFERENCES `profiles` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_profile_menu` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `profile_menus`
+--
+
+LOCK TABLES `profile_menus` WRITE;
+/*!40000 ALTER TABLE `profile_menus` DISABLE KEYS */;
+INSERT INTO `profile_menus` VALUES (1,12,7);
+/*!40000 ALTER TABLE `profile_menus` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `profiles`
+--
+
+DROP TABLE IF EXISTS `profiles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `profiles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `address` varchar(200) NOT NULL,
   `operation` varchar(20) NOT NULL,
   `space` varchar(200) NOT NULL,
   `contact` varchar(20) NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
-  `menu_id` int(10) unsigned NOT NULL,
   `description` text NOT NULL,
   `lat` float(10,6) NOT NULL,
   `lng` float(10,6) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_profile_user` (`user_id`),
-  KEY `fk_profile_menu` (`menu_id`),
-  CONSTRAINT `fk_profile_menu` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`),
-  CONSTRAINT `fk_profile_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+  CONSTRAINT `fk_profile_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `profile_meis`
+-- Dumping data for table `profiles`
 --
 
-LOCK TABLES `profile_meis` WRITE;
-/*!40000 ALTER TABLE `profile_meis` DISABLE KEYS */;
-/*!40000 ALTER TABLE `profile_meis` ENABLE KEYS */;
+LOCK TABLES `profiles` WRITE;
+/*!40000 ALTER TABLE `profiles` DISABLE KEYS */;
+INSERT INTO `profiles` VALUES (12,'knNNNMB','bjsa','vhb ','vh n',14,'vh',7.000000,6.000000);
+/*!40000 ALTER TABLE `profiles` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -91,7 +118,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +127,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (14,'katia','katia@katia.com','$2y$10$WKOtKd9N9sx9pr9IixOW5uO0GJTSA0nWNJ0ltDoXOdYwTSIWfAVqW');
+INSERT INTO `users` VALUES (14,'katia','katia@katia.com','$2y$10$WKOtKd9N9sx9pr9IixOW5uO0GJTSA0nWNJ0ltDoXOdYwTSIWfAVqW'),(15,'amandacasttro','hbbhng@hbjmdnsm.sdb','$2y$10$k7DoFTuNfe40.jhxcpIRuO55RyJrUQuDBI8I4It/NSAfXrsH6CDNW');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -113,4 +140,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-17  8:30:22
+-- Dump completed on 2017-11-18  8:48:36

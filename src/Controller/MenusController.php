@@ -36,7 +36,7 @@ class MenusController extends AppController
     public function view($id = null)
     {
         $menu = $this->Menus->get($id, [
-            'contain' => ['ProfileMeis']
+            'contain' => ['ProfileMenus']
         ]);
 
         $this->set('menu', $menu);
@@ -52,6 +52,15 @@ class MenusController extends AppController
     {
         $menu = $this->Menus->newEntity();
         if ($this->request->is('post')) {
+            if (!empty($this->request->data['photo']['name'])) {
+                $fileName=$this->request->data['photo']['name'];
+                $uploadPath=WWW_ROOT.'img/';
+                $uploadFile=$uploadPath.$fileName;
+                if (move_uploaded_file($this->request->data['photo']['tmp_name'],$uploadFile)) {
+                    $this->request->data['photo']=$fileName;
+                }
+
+            }
             $menu = $this->Menus->patchEntity($menu, $this->request->getData());
             if ($this->Menus->save($menu)) {
                 $this->Flash->success(__('The menu has been saved.'));
@@ -77,6 +86,15 @@ class MenusController extends AppController
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
+            if (!empty($this->request->data['photo']['name'])) {
+                $fileName=$this->request->data['photo']['name'];
+                $uploadPath=WWW_ROOT.'img/';
+                $uploadFile=$uploadPath.$fileName;
+                if (move_uploaded_file($this->request->data['photo']['tmp_name'],$uploadFile)) {
+                    $this->request->data['photo']=$fileName;
+                }
+
+            }
             $menu = $this->Menus->patchEntity($menu, $this->request->getData());
             if ($this->Menus->save($menu)) {
                 $this->Flash->success(__('The menu has been saved.'));

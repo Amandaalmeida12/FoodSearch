@@ -25,8 +25,11 @@ class MenusTableTest extends TestCase
      */
     public $fixtures = [
         'app.menus',
+        'app.profile_menus',
+        'app.profiles',
+        'app.users',
         'app.profile_meis',
-        'app.users'
+        'app.images'
     ];
 
     /**
