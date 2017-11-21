@@ -18,6 +18,19 @@ class ProfilesController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
+    public function mapa()
+    {
+
+    }
+    public function Profilesjson()
+    {
+        $this->autoRender= false;
+        $profiles=$this->Profiles->find()->select(['Profiles.title','Profiles.address','Profiles.lat','Profiles.lng']);
+        $resultJ=json_encode($profiles);
+        $this->response->type('json');
+        $this->response->body($resultJ);
+        return $this->response;
+    }
     public function index()
     {
         $this->paginate = [

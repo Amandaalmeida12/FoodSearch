@@ -29,7 +29,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
     <?= $this->Html->script('jquery.min.js'); ?>  
-    <?= $this->Html->css('bootstrap.min'); ?>  
+    <?= $this->Html->css('bootstrap.min.css'); ?>  
     <?= $this->Html->script('bootstrap.min.js'); ?>  
     
     <?= $this->fetch('meta') ?>

@@ -17,6 +17,27 @@
     </ul>
 </nav>
 <div class="profiles form large-9 medium-8 columns content">
+    <script type="text/javascript">
+
+    
+        function myMap() {
+            var myCenter = new google.maps.LatLng(-7.92323,-34.92004);
+            var mapCanvas = document.getElementById("map");
+            var mapOptions = {center: myCenter, zoom: 11};
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+
+            map.addListener('click', function(e) {
+                document.getElementById("lat").value = e.latLng.lat();
+                document.getElementById("lng").value = e.latLng.lng();
+            });
+
+        }
+</script>
+
+<div id="map" style="width:50%;height:500px"></div>
+
+<?= $this->Html->script('https://maps.googleapis.com/maps/api/js?key=AIzaSyD68OKeoqeM9tvDjrf8qTh98mxt7BM0BNQ&callback=myMap'); ?>
+
     <?= $this->Form->create($profile,['type'=>'file']) ?>
     <fieldset>
         <legend><?= __('Add Profile') ?></legend>
