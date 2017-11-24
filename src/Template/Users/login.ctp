@@ -7,8 +7,8 @@
             <img  src="http://i64.tinypic.com/124c5n8.png" align="center" >
         </div>
         <div id="input">
-            <?= $this->Form->input('Usuário: ') ?>
-            <?= $this->Form->input('Senha: ') ?>
+            <?= $this->Form->input('username') ?>
+            <?= $this->Form->input('password') ?>
         </div>
         <div id="button">
         <?= $this->Form->button(__('Entrar',['class'=>'btn btn-primary btn-lg btn-block'])); ?>
