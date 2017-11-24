@@ -8,7 +8,7 @@
         </div>
         <div id="input">
             <?= $this->Form->input('username', ['label'=>'Usuário: ']) ?>
-            <?= $this->Form->input('password', ['label'=>'Senha: ']) ?>
+            <?= $this->Form->input('password') ?>
         </div>
         <div id="button">
         <?= $this->Form->button(__('Entrar',['class'=>'btn btn-primary btn-lg btn-block'])); ?>

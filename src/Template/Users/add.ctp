@@ -16,7 +16,7 @@
               
                 echo $this->Form->control('username', ['label' =>'Usuário: ']);
                 echo $this->Form->control('email', ['label' => 'Email: ']);
-                echo $this->Form->control('password', ['label'=> 'Senha: ']);
+                echo $this->Form->control('password');
                 echo $this->Form->control('confirm_password',['label'=> 'Confirmar Sua Senha: ', 'type'=>'password']);
            ?>
            </div>
