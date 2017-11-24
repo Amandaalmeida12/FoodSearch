@@ -21,9 +21,27 @@ body {
 }
 
 #image{
-    width: 100px;
-    height: 100px;
-    align-items: center;
+    width: 180px;
+    height: 180px;
+    margin-left: 460px;
+    margin-top: 60px;
+    
+
+}
+#input{
+    width: 250px; 
+    height: 300px;
+    margin-left: 428px;
+    margin-top: -6px;   
+
+}
+#button{
+    width: 250px;
+    height: 300px;
+    margin-left: 355px;
+    margin-top: -180px;
+    border-color: green;
+   
 }
 
 /* HTML5 display definitions

@@ -2,16 +2,16 @@
 <div class="users form">
     <?= $this->Flash->render('auth') ?>
     <?= $this->Form->create() ?>
-    <fieldset>
-        
-        <div id="image">
-           
-            <img  src="http://i64.tinypic.com/124c5n8.png" align="center" >
 
-            </div>
-        <?= $this->Form->input('username') ?>
-        <?= $this->Form->input('password') ?>
-    </fieldset>
-    <?= $this->Form->button(__('Login',['class'=>'btn btn-primary btn-lg btn-block'])); ?>
-    <?= $this->Form->end() ?>
-</div>
+        <div id="image">
+            <img  src="http://i64.tinypic.com/124c5n8.png" align="center" >
+        </div>
+        <div id="input">
+            <?= $this->Form->input('Usuário: ') ?>
+            <?= $this->Form->input('Senha: ') ?>
+        </div>
+        <div id="button">
+        <?= $this->Form->button(__('Entrar',['class'=>'btn btn-primary btn-lg btn-block'])); ?>
+        <?= $this->Form->end() ?>
+        </div>
+    </div>
