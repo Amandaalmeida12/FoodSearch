@@ -39,7 +39,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body>
     <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div class="navbar-header" class="col-m-12">
+    <div id="nav" class="navbar-header" class="col-m-12">
      <?= $this->Html->image('logo.png') ?>
     </div>
     <ul class="nav navbar-nav">

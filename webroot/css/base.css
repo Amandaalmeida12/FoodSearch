@@ -455,6 +455,11 @@ th {
     height: 400px;
     width: 550px;
     z-index: -1px;
+    margin-left: 400px;
+}
+#nav{
+    margin-left: 400px;
+    margin-right: 20px;
 }
 
 /**
