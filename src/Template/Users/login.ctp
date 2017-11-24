@@ -4,11 +4,11 @@
     <?= $this->Form->create() ?>
 
         <div id="image">
-            <img  src="http://i64.tinypic.com/124c5n8.png" align="center" >
+            <img  src="http://i64.tinypic.com/124c5n8.png"  >
         </div>
         <div id="input">
-            <?= $this->Form->input('username') ?>
-            <?= $this->Form->input('password') ?>
+            <?= $this->Form->input('username', ['label'=>'Usuário: ']) ?>
+            <?= $this->Form->input('password', ['label'=>'Senha: ']) ?>
         </div>
         <div id="button">
         <?= $this->Form->button(__('Entrar',['class'=>'btn btn-primary btn-lg btn-block'])); ?>
