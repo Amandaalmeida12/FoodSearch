@@ -37,22 +37,25 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><?php echo $username; ?></li>
-                <?php if ($username): ?>
-                    <li><?= $this->Html->link(__('Logout'),['controller'=>'Users','action'=>'logout'])?></li>
-                <?php endif; ?>
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header" class="col-m-12">
+     <?= $this->Html->image('logo.png') ?>
+    </div>
+    <ul class="nav navbar-nav">
+     
+      <li><?= $this->Html->link(__('Inicio'), ['controller' => '', 'action' => '']) ?></li>
+      <li><?= $this->Html->link(__('Sobre nós'), ['controller' => '', 'action' => '']) ?></li> 
+      <li><?= $this->Html->link(__('Cadastre-se'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+      <li><?= $this->Html->link(__('Acessar'), ['controller' => 'Users', 'action' => 'login']) ?></li>
+      <?php if ($username): ?>
+            <li><?= $this->Html->link(__('Logout'),['controller'=>'Users','action'=>'logout'])?></li>
+        <?php endif; ?>
 
-            </ul>
-        </div>
-    </nav>
+    </ul>
+  </div>
+</nav>
+    
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
         <?= $this->fetch('content') ?>

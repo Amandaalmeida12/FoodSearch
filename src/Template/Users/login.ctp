@@ -1,10 +1,4 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-        
-    </ul>
-</nav>
+
 <div class="users form">
     <?= $this->Flash->render('auth') ?>
     <?= $this->Form->create() ?>
@@ -12,11 +6,11 @@
         
         <div id="image">
            
-            <img src="http://i64.tinypic.com/124c5n8.png" >
+            <img  src="http://i64.tinypic.com/124c5n8.png" align="center" >
 
             </div>
-        <?= $this->Form->input('Usuário: ') ?>
-        <?= $this->Form->input('Senha: ') ?>
+        <?= $this->Form->input('username') ?>
+        <?= $this->Form->input('password') ?>
     </fieldset>
     <?= $this->Form->button(__('Login',['class'=>'btn btn-primary btn-lg btn-block'])); ?>
     <?= $this->Form->end() ?>
