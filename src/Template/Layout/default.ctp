@@ -38,8 +38,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </head>
 <body>
     <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div id="nav" class="navbar-header" class="col-m-12">
+  <div id="nav" class="container-fluid">
+    <div class="navbar-header">
      <?= $this->Html->image('logo.png') ?>
     </div>
     <ul class="nav navbar-nav">
@@ -48,6 +48,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
       <li><?= $this->Html->link(__('Sobre nós'), ['controller' => 'Users', 'action' => 'sobrenos']) ?></li> 
       <li><?= $this->Html->link(__('Cadastre-se'), ['controller' => 'Users', 'action' => 'add']) ?></li>
       <li><?= $this->Html->link(__('Acessar'), ['controller' => 'Users', 'action' => 'login']) ?></li>
+     
       <?php if ($username): ?>
             <li><?= $this->Html->link(__('Logout'),['controller'=>'Users','action'=>'logout'])?></li>
         <?php endif; ?>

@@ -20,6 +20,10 @@ class UsersController extends AppController
         parent::beforeFilter($event);
         $this->Auth->allow(['add','rememberPassword']);
     }
+     public function sobrenos()
+    {
+
+    }
     /**
      * Index method
      *

@@ -1,17 +1,24 @@
 
-<div class="users form">
-    <?= $this->Flash->render('auth') ?>
-    <?= $this->Form->create() ?>
+<div class="container">
 
-        <div id="image">
-            <img  src="http://i64.tinypic.com/124c5n8.png"  >
-        </div>
-        <div id="input">
-            <?= $this->Form->input('username', ['label'=>'Usuário: ']) ?>
-            <?= $this->Form->input('password') ?>
-        </div>
-        <div id="button">
-        <?= $this->Form->button(__('Entrar',['class'=>'btn btn-primary btn-lg btn-block'])); ?>
-        <?= $this->Form->end() ?>
-        </div>
-    </div>
+
+<div class="col-md-4 col-md-offset-4">
+<fieldset >
+
+<div>
+    <img src="/img/user.png">
+</div>
+<?= $this->Form->create(null, array('class'=>"form-group")) ?>
+<?= $this->Form->control('username',['label' => 'Usuário: ', 'class' => 'form-control form-rounded']) ?>
+<?= $this->Form->control('password',['label' => 'Senha: ', 'class' => 'form-control']) ?>
+<?php echo $this->Html->link(
+    '<i class="fa fa-question-circle" aria-hidden="true"></i> Esqueci minha senha',
+    array('controller'=>'users','action'=>'recoverPassword'),
+    array('class'=>'right', 'escape' => false));
+    ?>
+</fieldset>
+<?= $this->Form->button(__('Entrar'), array('type' => 'submit', 'class' => 'btn btn-block btn-success btn-lg')); ?>
+<?= $this->Form->end() ?>
+
+</div>
+</div>

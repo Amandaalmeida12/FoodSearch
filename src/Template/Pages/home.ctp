@@ -54,7 +54,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <ul class="nav navbar-nav">
      
       <li><?= $this->Html->link(__('Inicio'), ['controller' => '', 'action' => '']) ?></li>
-      <li><?= $this->Html->link(__('Sobre nós'), ['controller' => '', 'action' => '']) ?></li> 
+      <li><?= $this->Html->link(__('Sobre nós'), ['controller' => 'Users', 'action' => 'sobrenos']) ?></li> 
       <li><?= $this->Html->link(__('Cadastre-se'), ['controller' => 'Users', 'action' => 'add']) ?></li>
       <li><?= $this->Html->link(__('Acessar'), ['controller' => 'Users', 'action' => 'login']) ?></li>
      
