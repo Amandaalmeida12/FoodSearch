@@ -81,7 +81,7 @@ class ProfilesController extends AppController
             if ($this->Profiles->save($profile)) {
                 $this->Flash->success(__('The profile has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'ProfileMenus', 'action' => 'index']);
             }
             $this->Flash->error(__('The profile could not be saved. Please, try again.'));
         }

@@ -9,11 +9,10 @@
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Profile Menu'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Profiles'), ['controller' => 'Profiles', 'action' => 'index']) ?></li>
-        <li><i class="glyphicon glyphicon-plus"><?= $this->Html->link(__('New Profile'), ['controller' => 'Profiles', 'action' => 'add']) ?> </i></li>
+        <li><?= $this->Html->link(__('New Profile'), ['controller' => 'Profiles', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Menus'), ['controller' => 'Menus', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Menu'), ['controller' => 'Menus', 'action' => 'add']) ?></li>
     </ul>
-   
 </nav>
 <div class="profileMenus index large-9 medium-8 columns content">
     <h3><?= __('Profile Menus') ?></h3>

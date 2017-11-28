@@ -478,6 +478,37 @@ th {
     margin-left: 400px;
     margin-right: 20px;
 }
+#menu-imagem{
+    border-style: dotted;
+    border-width: 1px;
+    font-family: verdana, arial;
+    font-size: 10pt;
+    position: absolute;
+    top: 100px;
+}
+#menu-descricao{
+    border-width: 1px;
+    margin-left:340px;
+    top:100px;
+    position:absolute;
+    height:500px;
+    width:500px;
+    background:#d3d3d3;
+}
+#menu-categoria{
+    
+}
+#descricao{
+    
+}
+#menu-valor{
+    height: 90px;
+    width: 95px;
+    top:400px;
+    margin-left:400px;
+    position:absolute;
+
+}
 
 /**
  * Foundation for Sites by ZURB
