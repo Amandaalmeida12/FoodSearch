@@ -4,26 +4,30 @@
  * @var \App\Model\Entity\Menu $menu
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Menus'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Profile Menus'), ['controller' => 'ProfileMenus', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Profile Menu'), ['controller' => 'ProfileMenus', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
 <div class="menus form large-9 medium-8 columns content">
     <?= $this->Form->create($menu,['type'=>'file']) ?>
     <fieldset>
         <legend><?= __('Add Menu') ?></legend>
-        <?php
-            echo $this->Form->control('title');
-            echo $this->Form->control('price');
-            echo $this->Form->control('category');
-            echo $this->Form->control('description');
-            echo $this->Form->control('photo',['type'=>'file']);
-            echo $this->Form->control('photo_dir');
-        ?>
+        <div>
+            <?php echo $this->Form->control('title',['class'=>'form-control']); ?>
+        </div>
+
+        <div id="menu-descricao"> 
+            <div id="descricao">
+                <?php echo $this->Form->control('description',['class'=>'form-control','placeholder'=>'Descrição do prato']); ?>
+            </div>
+            <div id="menu-valor">
+                <?php echo $this->Form->control('price',['class'=>'form-control','placeholder'=>'Digite preço']); ?>
+            </div>
+            <div id="menu-categoria">
+                <?php echo $this->Form->control('category',['class'=>'form-control','placeholder'=>'Categoria do prato']);?>
+            </div>
+            
+        </div>
+        <div id="menu-imagem">
+            <?php  echo $this->Form->control('photo',['type'=>'file']);?>
+        </div>
+        
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

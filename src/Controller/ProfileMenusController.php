@@ -59,7 +59,7 @@ class ProfileMenusController extends AppController
             if ($this->ProfileMenus->save($profileMenu)) {
                 $this->Flash->success(__('The profile menu has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                 return $this->redirect(['controller' => 'ProfileMenus', 'action' => 'index']);
             }
             $this->Flash->error(__('The profile menu could not be saved. Please, try again.'));
         }
