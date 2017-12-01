@@ -40,6 +40,7 @@ $cakeDescription = 'Foodsearch';
 
     <?= $this->Html->meta('icon') ?>
     <?= $this->Html->css('base.css') ?>
+    <?= $this->Html->script('jquery.min.js'); ?> 
     <?= $this->Html->css('cake.css') ?>
     <?= $this->Html->css('home.css') ?>
     <?= $this->Html->css('bootstrap.min.css') ?>
@@ -75,6 +76,72 @@ $cakeDescription = 'Foodsearch';
     <input id="btn-busca" type="submit" value="Buscar">
     </div>
 </header>
+<div class="col-xs-3 col-md-5 " id="div-proximo">
+<h3>Próximo a você</h3>
+  
+</div>
 
+
+
+<?= $this->Html->script('https://maps.googleapis.com/maps/api/js?key=AIzaSyD68OKeoqeM9tvDjrf8qTh98mxt7BM0BNQ'); ?>
+
+
+
+<script type="text/javascript">
+
+    var map;
+    var profiles= [];
+    var infoWindow;
+    var locationSelect;
+
+
+
+
+    function carregaMapa() {
+      map = new google.maps.Map(document.getElementById("map"), {
+            center: new google.maps.LatLng(-7.92323,-34.92004),
+            zoom: 11,
+            mapTypeId: 'roadmap',
+            mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU}
+          });
+          infoWindow = new google.maps.InfoWindow();
+
+          locationSelect = document.getElementById("locationSelect");
+          locationSelect.onchange = function() {
+            var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
+            if (markerNum != "none"){
+              google.maps.event.trigger(profiles[markerNum], 'click');
+            }
+          };
+    }
+
+    function createMarker(latlng,title, address) {
+          var html = "<b>" +title + "</b> <br/>" + address;
+          var marker = new google.maps.Marker({
+            map: map,
+            position: latlng
+          });
+          google.maps.event.addListener(marker, 'click', function() {
+            infoWindow.setContent(html);
+            infoWindow.open(map, marker);
+          });
+          profiles.push(marker);
+        }
+
+    $.getJSON('http://localhost:8765/profiles/Profilesjson', function(data) {
+        for (var i = 0; i < data.length; i++) {
+            var latlng = new google.maps.LatLng(data[i].lat,data[i].lng)
+            createMarker(latlng, data[i].title, data[i].address);
+        }
+    });
+
+</script>
+<div>
+  <div id="map" style="width:30%;height:500px">
+    <script>
+        carregaMapa();
+    </script>
+  </div>
+</div>
 </body>
 </html>
