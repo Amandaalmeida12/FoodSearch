@@ -55,6 +55,13 @@ body {
     margin-top: -60px;
 
 }
+#map{
+    position: absolute;
+    margin-top:400px;
+}
+#div-proximo{
+    margin-top:300px;
+}
 /* HTML5 display definitions
    ========================================================================== */
 
