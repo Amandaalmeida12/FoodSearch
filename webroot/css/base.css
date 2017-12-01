@@ -463,10 +463,11 @@ th {
     padding: 0;
 }
 #image-principal{
-    height: 400px;
-    width: 550px;
-    z-index: -1px;
-    margin-left: 400px;
+    margin-top: -20px;
+    height: 300px;
+    position: absolute;
+    background-image: url(http://i65.tinypic.com/308ffj5.jpg);
+    z-index: -1;
 }
 #nav{
     margin-left: 400px;
@@ -502,6 +503,27 @@ th {
     margin-left:400px;
     position:absolute;
 
+}
+#busca{
+    margin-top: 140px;
+    position:absolute;
+
+}
+#busca-submit{
+    margin-top: 140px;
+    position:absolute;
+    
+}
+#input-busca{
+    height: 35px;
+    border-radius:4px;
+
+}
+#btn-busca{
+    background: green;
+    border-color:green;
+    color: black;
+    border-radius:4px;
 }
 
 /**

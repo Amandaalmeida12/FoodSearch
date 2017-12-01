@@ -27,7 +27,7 @@ if (!Configure::read('debug')) :
     );
 endif;
 
-$cakeDescription = 'CakePHP: the rapid development PHP framework';
+$cakeDescription = 'Foodsearch';
 ?>
 <!DOCTYPE html>
 <html>
@@ -67,8 +67,13 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 </nav>
 
 <header class="row">
-    <div  id="image-principal"><?= $this->Html->image('mei.png') ?></div>
-    <div id="busca" class="col-m-8"><input type="text" name="buscar" placeholder="Digite o nome da Comida:"><input type="submit" value="Busca"></div>
+    <div class="col-xs-12 col-sm-6 col-lg-12"  id="image-principal"></div>
+    <div class="col-xs-9 col-md-7 col-md-offset-2" id="busca"><input type="text" id="input-busca" name="buscar" placeholder="Digite o nome da Comida:">
+    </div>
+
+    <div  class="col-xs-3 col-md-5 col-md-offset-9" id="busca-submit">
+    <input id="btn-busca" type="submit" value="Buscar">
+    </div>
 </header>
 
 </body>

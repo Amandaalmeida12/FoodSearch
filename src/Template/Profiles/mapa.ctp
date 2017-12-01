@@ -61,11 +61,11 @@
 
 
 
-<div class="markers index large-9 medium-8 columns content">
+<div class="profiles index large-9 medium-8 columns content">
     
 
 
-    <div id="map" style="width:50%;height:500px">
+    <div id="map" style="width:60%;height:600px">
         <script>
             carregaMapa();
         </script>
