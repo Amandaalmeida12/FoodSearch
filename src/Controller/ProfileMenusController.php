@@ -98,7 +98,7 @@ class ProfileMenusController extends AppController
 
     /**
      * Delete method
-     *
+     
      * @param string|null $id Profile Menu id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.

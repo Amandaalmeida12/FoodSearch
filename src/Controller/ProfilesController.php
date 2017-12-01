@@ -91,7 +91,7 @@ class ProfilesController extends AppController
     }
 
     /**
-     * Edit method
+     * Edit methodd
      *
      * @param string|null $id Profile id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.

@@ -63,7 +63,7 @@ $cakeDescription = 'Foodsearch';
     </div>
     <footer class="footer">
       <div class="container">
-        <p>nfda</p>
+        <p>nfdawrwefdfs</p>
       
       </div>
       

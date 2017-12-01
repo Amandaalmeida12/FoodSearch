@@ -9,7 +9,7 @@
     <?= $this->Form->create($user) ?>
    
         <div id="img_cad">
-            <img  src=""  >
+            <img  src="/img/user.png"  >
         </div>
         <div id="cadastro">
           <?php

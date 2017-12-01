@@ -24,7 +24,7 @@ class ProfileMenusTable extends Table
 {
 
     /**
-     * Initialize method
+     * Initialize methodd
      *
      * @param array $config The configuration for the Table.
      * @return void
