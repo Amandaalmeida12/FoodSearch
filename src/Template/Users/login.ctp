@@ -5,7 +5,7 @@
 <div class="col-md-4 col-md-offset-4">
 <fieldset >
 
-<div>
+<div id="image">
     <img src="/img/user.png">
 </div>
 <?= $this->Form->create(null, array('class'=>"form-group")) ?>

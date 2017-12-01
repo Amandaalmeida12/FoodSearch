@@ -20,6 +20,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col">Menu Name</th>
                 <th scope="col"><?= $this->Paginator->sort('profile_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('menu_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -29,6 +30,7 @@
             <?php foreach ($profileMenus as $profileMenu): ?>
             <tr>
                 <td><?= $this->Number->format($profileMenu->id) ?></td>
+                <td><?= $profileMenu->menu->title ?></td>
                 <td><?= $profileMenu->has('profile') ? $this->Html->link($profileMenu->profile->title, ['controller' => 'Profiles', 'action' => 'view', $profileMenu->profile->id]) : '' ?></td>
                 <td><?= $profileMenu->has('menu') ? $this->Html->link($profileMenu->menu->title, ['controller' => 'Menus', 'action' => 'view', $profileMenu->menu->id]) : '' ?></td>
                 <td class="actions">

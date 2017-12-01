@@ -61,7 +61,12 @@ $cakeDescription = 'Foodsearch';
     <div class="container clearfix">
         <?= $this->fetch('content') ?>
     </div>
-    <footer>
+    <footer class="footer">
+      <div class="container">
+        <p>nfda</p>
+      
+      </div>
+      
     </footer>
 </body>
 </html>
