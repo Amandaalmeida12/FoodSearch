@@ -78,6 +78,7 @@ class ProfilesController extends AppController
 
             }
             $profile = $this->Profiles->patchEntity($profile, $this->request->getData());
+            $profile->user_id=$this->Auth->user('id');
             if ($this->Profiles->save($profile)) {
                 $this->Flash->success(__('The profile has been saved.'));
 
@@ -143,5 +144,18 @@ class ProfilesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    public function isAuthorized($user)
+    {
+        if ($this->request->getParam('action')==='add') {
+            return true;
+        }
+        if (in_array($this->request->getParam('action'), ['edit','delete'])) {
+            $profileId=(int)$this->request->getParam('pass.0');
+            if ($this->Profiles->isOwnedBy($profileId,$user['id'])) {
+                return true;
+            }
+        }
+        return parent::isAuthorized($user);
     }
 }

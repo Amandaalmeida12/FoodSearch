@@ -30,7 +30,7 @@
             <?php foreach ($profileMenus as $profileMenu): ?>
             <tr>
                 <td><?= $this->Number->format($profileMenu->id) ?></td>
-                <td><?= $profileMenu->menu->title ?></td>
+                <td><?= $profileMenu->menu->photo ?></td>
                 <td><?= $profileMenu->has('profile') ? $this->Html->link($profileMenu->profile->title, ['controller' => 'Profiles', 'action' => 'view', $profileMenu->profile->id]) : '' ?></td>
                 <td><?= $profileMenu->has('menu') ? $this->Html->link($profileMenu->menu->title, ['controller' => 'Menus', 'action' => 'view', $profileMenu->menu->id]) : '' ?></td>
                 <td class="actions">

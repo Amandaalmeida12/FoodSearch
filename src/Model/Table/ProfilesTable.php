@@ -123,4 +123,8 @@ class ProfilesTable extends Table
 
         return $rules;
     }
+    public function isOwnedBy($profileId,$userId)
+    {
+        return $this->exists(['id'=>$profileId,'user_id'=>$userId]);
+    }
 }

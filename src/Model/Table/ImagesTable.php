@@ -80,4 +80,8 @@ class ImagesTable extends Table
 
         return $rules;
     }
+    public function isOwneBy($imageId,$userId)
+    {
+        return $this->exists(['id'=>$imageId,'user_id'=>$userId]);
+    }
 }

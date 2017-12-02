@@ -82,4 +82,8 @@ class MenusTable extends Table
 
         return $validator;
     }
+    public function isOwneBy($menuId,$userId)
+    {
+        return $this->exists(['id'=>$menuId,'user_id'=>$userId]);
+    }
 }

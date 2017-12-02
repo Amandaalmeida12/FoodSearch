@@ -62,6 +62,7 @@ class MenusController extends AppController
 
             }
             $menu = $this->Menus->patchEntity($menu, $this->request->getData());
+            $menu->user_id=$this->Auth->user('id');
             if ($this->Menus->save($menu)) {
                 $this->Flash->success(__('The menu has been saved.'));
 
@@ -126,4 +127,18 @@ class MenusController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    public function isAuthorized($user)
+    {
+        if ($this->request->getParam('action')==='add') {
+            return true;
+        }
+        if (in_array($this->request->getParam('action'), ['edit','delete'])) {
+            $menuId=(int)$this->request->getParam('pass.0');
+            if ($this->Menus->isOwnedBy($menuId,$user['id'])) {
+                return true;
+            }
+        }
+        return parent::isAuthorized($user);
+    }
+
 }

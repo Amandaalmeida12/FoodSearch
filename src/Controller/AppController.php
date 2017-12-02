@@ -34,6 +34,13 @@ class AppController extends Controller
      *.
      * @return void
      */
+    public function isAuthorized($user)
+    {
+        if (isset($user['username']) && $user['username'] === 'aaaa') {
+            return true;
+        }
+        return false;
+    }
     public function initialize()
     {
         parent::initialize();
@@ -83,6 +90,8 @@ class AppController extends Controller
     }
     public function beforeFilter(Event $event)
     {
-        $this->set('username',$this->Auth->user('username'));
+        $this->Auth->allow(['index', 'view', 'display']);
     }
+    
+
 }

@@ -65,6 +65,7 @@ class ImagesController extends AppController
 
             }
             $image = $this->Images->patchEntity($image, $this->request->getData());
+
             if ($this->Images->save($image)) {
                 $this->Flash->success(__('The image has been saved.'));
 
@@ -131,5 +132,18 @@ class ImagesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+     public function isAuthorized($user)
+    {
+        if ($this->request->getParam('action')==='add') {
+            return true;
+        }
+        if (in_array($this->request->getParam('action'), ['edit','delete'])) {
+            $imageId=(int)$this->request->getParam('pass.0');
+            if ($this->Images->isOwnedBy($imageId,$user['id'])) {
+                return true;
+            }
+        }
+        return parent::isAuthorized($user);
     }
 }

@@ -76,4 +76,8 @@ class ProfileMenusTable extends Table
 
         return $rules;
     }
+    public function isOwneBy($profilemenuId,$userId)
+    {
+        return $this->exists(['id'=>$profilemenuId,'user_id'=>$userId]);
+    }
 }
