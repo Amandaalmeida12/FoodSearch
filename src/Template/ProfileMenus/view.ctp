@@ -32,5 +32,9 @@
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($profileMenu->id) ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('Image Id') ?></th>
+            <td><?= $this->Number->format($profileMenu->image_id) ?></td>
+        </tr>
     </table>
 </div>

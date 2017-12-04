@@ -85,4 +85,14 @@ class ProfileMenusTableTest extends TestCase
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
+
+    /**
+     * Test isOwneBy method
+     *
+     * @return void
+     */
+    public function testIsOwneBy()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
 }

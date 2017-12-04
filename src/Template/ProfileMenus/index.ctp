@@ -3,6 +3,8 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\ProfileMenu[]|\Cake\Collection\CollectionInterface $profileMenus
  */
+
+
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
@@ -20,9 +22,9 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col">Menu Name</th>
                 <th scope="col"><?= $this->Paginator->sort('profile_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('menu_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('image_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -30,9 +32,9 @@
             <?php foreach ($profileMenus as $profileMenu): ?>
             <tr>
                 <td><?= $this->Number->format($profileMenu->id) ?></td>
-                <td><?= $profileMenu->menu->photo ?></td>
                 <td><?= $profileMenu->has('profile') ? $this->Html->link($profileMenu->profile->title, ['controller' => 'Profiles', 'action' => 'view', $profileMenu->profile->id]) : '' ?></td>
                 <td><?= $profileMenu->has('menu') ? $this->Html->link($profileMenu->menu->title, ['controller' => 'Menus', 'action' => 'view', $profileMenu->menu->id]) : '' ?></td>
+                <td><?= $this->Number->format($profileMenu->image_id) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $profileMenu->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $profileMenu->id]) ?>

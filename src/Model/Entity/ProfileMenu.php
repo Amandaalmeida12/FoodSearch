@@ -9,6 +9,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $profile_id
  * @property int $menu_id
+ * @property int $image_id
  *
  * @property \App\Model\Entity\Profile $profile
  * @property \App\Model\Entity\Menu $menu
@@ -28,6 +29,7 @@ class ProfileMenu extends Entity
     protected $_accessible = [
         'profile_id' => true,
         'menu_id' => true,
+        'image_id' => true,
         'profile' => true,
         'menu' => true
     ];

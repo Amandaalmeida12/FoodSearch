@@ -28,6 +28,7 @@ class ProfileMenusController extends AppController
         $this->set(compact('profileMenus'));
         $this->set('_serialize', ['profileMenus']);
     }
+    
 
     /**
      * View method
@@ -56,11 +57,10 @@ class ProfileMenusController extends AppController
         $profileMenu = $this->ProfileMenus->newEntity();
         if ($this->request->is('post')) {
             $profileMenu = $this->ProfileMenus->patchEntity($profileMenu, $this->request->getData());
-            $profileMenu->user_id=$this->Auth->user('id');
             if ($this->ProfileMenus->save($profileMenu)) {
                 $this->Flash->success(__('The profile menu has been saved.'));
 
-                 return $this->redirect(['controller' => 'ProfileMenus', 'action' => 'index']);
+                return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The profile menu could not be saved. Please, try again.'));
         }
@@ -99,7 +99,7 @@ class ProfileMenusController extends AppController
 
     /**
      * Delete method
-     
+     *
      * @param string|null $id Profile Menu id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
@@ -115,18 +115,5 @@ class ProfileMenusController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-    }
-     public function isAuthorized($user)
-    {
-        if ($this->request->getParam('action')==='add') {
-            return true;
-        }
-        if (in_array($this->request->getParam('action'), ['edit','delete'])) {
-            $profilemenuId=(int)$this->request->getParam('pass.0');
-            if ($this->ProfileMenus->isOwnedBy($profilemenuId,$user['id'])) {
-                return true;
-            }
-        }
-        return parent::isAuthorized($user);
     }
 }

@@ -4,31 +4,31 @@
  * @var \App\Model\Entity\Menu $menu
  */
 ?>
-<div class="menus form large-9 medium-8 columns content">
+<div id="margem" class="menus form large-9 medium-8 columns content">
+
     <?= $this->Form->create($menu,['type'=>'file']) ?>
     <fieldset>
         <legend><?= __('Add Menu') ?></legend>
-        <div>
-            <?php echo $this->Form->control('title',['class'=>'form-control']); ?>
-        </div>
+            <?php echo $this->Form->control('title',['label'=>'','placeholder'=>'Digite o nome do prato','class'=>'col-xs-4']); ?>
+        <div class="row">
+            <div id="menu-foto" class="col-sm-3 col-md-6 col-lg-4">
+                <?php  echo $this->Form->control('photo',['label'=>'Insira a Foto','type'=>'file']);?>
+            </div>
+             <div id="pg-menu" class="col-sm-9 col-md-6 col-lg-8">
+                <?php echo $this->Form->control('description',['id'=>'menu-descricao','label'=>'','class'=>'form-control','placeholder'=>'Descrição do prato']); ?>
 
-        <div id="menu-descricao"> 
-            <div id="descricao">
-                <?php echo $this->Form->control('description',['class'=>'form-control','placeholder'=>'Descrição do prato']); ?>
+                <?php echo $this->Form->control('category',['label'=>'','class'=>'form-control','placeholder'=>'Categoria do prato']);?>
+                <div class="">
+                <?php echo $this->Form->control('price',['label'=>'','class'=>'form-control','placeholder'=>'Preço:R$ xx,xx']); ?>
+                </div>
+                <div class="col-sm-3">
+                <?= $this->Form->button(__('Salvar'),['id'=>'menu-salvar']) ?>
+                <?= $this->Form->end() ?>
+                </div>
+
             </div>
-            <div id="menu-valor">
-                <?php echo $this->Form->control('price',['class'=>'form-control','placeholder'=>'Digite preço']); ?>
-            </div>
-            <div id="menu-categoria">
-                <?php echo $this->Form->control('category',['class'=>'form-control','placeholder'=>'Categoria do prato']);?>
-            </div>
-            
-        </div>
-        <div id="menu-imagem">
-            <?php  echo $this->Form->control('photo',['type'=>'file']);?>
         </div>
         
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+    
 </div>

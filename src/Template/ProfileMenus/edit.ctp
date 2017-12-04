@@ -27,6 +27,7 @@
         <?php
             echo $this->Form->control('profile_id', ['options' => $profiles]);
             echo $this->Form->control('menu_id', ['options' => $menus]);
+            echo $this->Form->control('image_id');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -19,7 +19,51 @@ html {
 body {
     margin: 0;
 }
+#map {
+    height: 100%;
+}
+     
+.controls {
+    margin-top: 10px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
 
+#pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 300px;
+}
+
+#pac-input:focus {
+    border-color: #4d90fe;
+}
+
+.pac-container {
+    font-family: Roboto;
+}
+
+#type-selector {
+    color: #fff;
+    background-color: #4d90fe;
+    padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+}
 #image{
     width: 180px;
     height: 180px;
@@ -75,7 +119,7 @@ body {
     margin-top:400px;
 }
 #div-proximo{
-    margin-top:301px;
+    margin-top:260px;
 }
 >>>>>>> c4f5ae6b1d65941cb2d41e6e940a7e27bb6f5a99
 /* HTML5 display definitions
@@ -496,35 +540,26 @@ th {
     margin-left: 400px;
     margin-right: 20px;
 }
-#menu-imagem{
-    border-style: dotted;
-    border-width: 1px;
-    font-family: verdana, arial;
-    font-size: 10pt;
-    position: absolute;
-    top: 100px;
+#pg-menu{
+    background: #9e9e9e;
+    height: 350px;
 }
 #menu-descricao{
-    border-width: 1px;
-    margin-left:340px;
-    top:100px;
-    position:absolute;
-    height:500px;
-    width:500px;
-    background:#d3d3d3;
+
 }
-#menu-categoria{
+#menu-salvar{
+    margin-top:40px;
+    background:green;
+    color:black;
     
 }
-#descricao{
-    
+#menu-foto{
+    border-width: 2px;
+    border-style: groove;
+    border-color: black;
+    height: 135px;
 }
-#menu-valor{
-    height: 90px;
-    width: 95px;
-    top:400px;
-    margin-left:400px;
-    position:absolute;
+#margem{
 
 }
 #busca{
@@ -548,6 +583,8 @@ th {
     color: black;
     border-radius:4px;
 }
+
+
 
 /**
  * Foundation for Sites by ZURB

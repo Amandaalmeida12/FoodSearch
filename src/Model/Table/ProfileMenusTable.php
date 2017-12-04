@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\ProfilesTable|\Cake\ORM\Association\BelongsTo $Profiles
  * @property \App\Model\Table\MenusTable|\Cake\ORM\Association\BelongsTo $Menus
+ * @property |\Cake\ORM\Association\BelongsTo $Images
  *
  * @method \App\Model\Entity\ProfileMenu get($primaryKey, $options = [])
  * @method \App\Model\Entity\ProfileMenu newEntity($data = null, array $options = [])
@@ -24,7 +25,7 @@ class ProfileMenusTable extends Table
 {
 
     /**
-     * Initialize methodd
+     * Initialize method
      *
      * @param array $config The configuration for the Table.
      * @return void
@@ -43,6 +44,10 @@ class ProfileMenusTable extends Table
         ]);
         $this->belongsTo('Menus', [
             'foreignKey' => 'menu_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Images', [
+            'foreignKey' => 'image_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -73,11 +78,8 @@ class ProfileMenusTable extends Table
     {
         $rules->add($rules->existsIn(['profile_id'], 'Profiles'));
         $rules->add($rules->existsIn(['menu_id'], 'Menus'));
+        $rules->add($rules->existsIn(['image_id'], 'Images'));
 
         return $rules;
-    }
-    public function isOwneBy($profilemenuId,$userId)
-    {
-        return $this->exists(['id'=>$profilemenuId,'user_id'=>$userId]);
     }
 }
