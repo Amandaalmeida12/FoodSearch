@@ -65,50 +65,36 @@ body {
     font-weight: 300;
 }
 #image{
-    width: 180px;
-    height: 180px;
-    margin-left: 80px;
-    margin-top: 60px;
-    
-
+   width: 220px;
+   height: 220px;
+   margin-left: 60px;
+   margin-top: 60px;
 }
 
-#button{
-    width: 250px;
-    height: 300px;
-    margin-left: 355px;
-    margin-top: -180px;
-   
+#sobre{
+   width: 460px;
+   height: 460px;
+   margin-left: -10px;
+   margin-top: 210px;
 }
-#img_cad{
-    width: 180px;
-    height: 180px;
-    margin-left: 440px;
-    margin-top: 60px;
+#text{
+   margin-left: 500px;
+   margin-top: -350px;
 }
-#cadastro{
-    width: 250px; 
-    height: 300px;
-    margin-left: 410px;
-    margin-top: -6px; 
-}
-#button_cad{
-    width: 250px;
-    height: 300px;
-    margin-left: 350px;
-    margin-top: -60px;
 
-}
-<<<<<<< HEAD
-#username,#password{
+
+#username,#password,#email{
     border-radius: 5px;
+    height: 40px;
 }
+
 .footer > .container {
-  padding-right: -10px;
-  padding-left: 55px;
-  background: #F5F2F1;
-  position:absolute;
-  width:100%;
+    width: 100%;
+    height: 100px;
+    margin-left: 0%;
+    margin-top: -150px;
+    background: #e7e7e7;
+    position: fixed;
   
 
 }
@@ -326,6 +312,9 @@ pre {
     overflow: auto;
 }
 
+p{
+    font-size: 23px;
+}
 /**
  * Address odd `em`-unit font size rendering in all browsers.
  */

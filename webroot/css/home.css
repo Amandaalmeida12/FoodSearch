@@ -17,6 +17,8 @@
     color: #404041;
 }
 
+
+
 a {
     color: #0071BC;
     -webkit-transition: all 0.2s;
@@ -56,7 +58,7 @@ header.row {
 
 header .header-image {
     text-align: center;
-    padding: 64px 0;
+    padding: 50px 0;
 }
 
 header .header-title {

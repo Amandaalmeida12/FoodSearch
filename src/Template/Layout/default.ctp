@@ -40,7 +40,7 @@ $cakeDescription = 'Foodsearch';
     <nav class="navbar navbar-default">
   <div id="nav" class="container-fluid">
     <div class="navbar-header">
-     <?= $this->Html->image('logo.png') ?>
+     <?= $this->Html->image('logotr.png') ?>
     </div>
     <ul class="nav navbar-nav">
      
@@ -63,7 +63,7 @@ $cakeDescription = 'Foodsearch';
     </div>
     <footer class="footer">
       <div class="container">
-        <p>nfdawrwefdfs</p>
+        <p>Copyright © 2017, FoodSearch</p>
       
       </div>
       
