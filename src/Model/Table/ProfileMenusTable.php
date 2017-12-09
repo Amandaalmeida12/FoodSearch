@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\ProfilesTable|\Cake\ORM\Association\BelongsTo $Profiles
  * @property \App\Model\Table\MenusTable|\Cake\ORM\Association\BelongsTo $Menus
- * @property |\Cake\ORM\Association\BelongsTo $Images
+ * @property \App\Model\Table\ImagesTable|\Cake\ORM\Association\BelongsTo $Images
  *
  * @method \App\Model\Entity\ProfileMenu get($primaryKey, $options = [])
  * @method \App\Model\Entity\ProfileMenu newEntity($data = null, array $options = [])
@@ -65,6 +65,10 @@ class ProfileMenusTable extends Table
             ->allowEmpty('id', 'create');
 
         return $validator;
+    }
+    public function isOwnedBy($profileMenu, $userId)
+    {
+        return $this->exists(['id' => $profileMenu, 'user_id' => $userId]);
     }
 
     /**

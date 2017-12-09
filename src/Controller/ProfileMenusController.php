@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * ProfileMenus Controller
@@ -18,17 +19,22 @@ class ProfileMenusController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
-    public function index()
+     public function beforeFilter(Event $event)
     {
+        parent::beforeFilter($event);
+        $this->Auth->allow(['index','view']);
+    }
+
+    public function index()
+    {   
         $this->paginate = [
-            'contain' => ['Profiles', 'Menus']
+            'contain' => ['Profiles', 'Menus', 'Images']
         ];
         $profileMenus = $this->paginate($this->ProfileMenus);
-
+        
         $this->set(compact('profileMenus'));
         $this->set('_serialize', ['profileMenus']);
     }
-    
 
     /**
      * View method
@@ -40,7 +46,7 @@ class ProfileMenusController extends AppController
     public function view($id = null)
     {
         $profileMenu = $this->ProfileMenus->get($id, [
-            'contain' => ['Profiles', 'Menus']
+            'contain' => ['Profiles', 'Menus', 'Images']
         ]);
 
         $this->set('profileMenu', $profileMenu);
@@ -57,6 +63,7 @@ class ProfileMenusController extends AppController
         $profileMenu = $this->ProfileMenus->newEntity();
         if ($this->request->is('post')) {
             $profileMenu = $this->ProfileMenus->patchEntity($profileMenu, $this->request->getData());
+            $profileMenu->user_id =$this->Auth->user( 'id' ); 
             if ($this->ProfileMenus->save($profileMenu)) {
                 $this->Flash->success(__('The profile menu has been saved.'));
 
@@ -66,7 +73,8 @@ class ProfileMenusController extends AppController
         }
         $profiles = $this->ProfileMenus->Profiles->find('list', ['limit' => 200]);
         $menus = $this->ProfileMenus->Menus->find('list', ['limit' => 200]);
-        $this->set(compact('profileMenu', 'profiles', 'menus'));
+        $images = $this->ProfileMenus->Images->find('list', ['limit' => 200]);
+        $this->set(compact('profileMenu', 'profiles', 'menus', 'images'));
         $this->set('_serialize', ['profileMenu']);
     }
 
@@ -93,7 +101,8 @@ class ProfileMenusController extends AppController
         }
         $profiles = $this->ProfileMenus->Profiles->find('list', ['limit' => 200]);
         $menus = $this->ProfileMenus->Menus->find('list', ['limit' => 200]);
-        $this->set(compact('profileMenu', 'profiles', 'menus'));
+        $images = $this->ProfileMenus->Images->find('list', ['limit' => 200]);
+        $this->set(compact('profileMenu', 'profiles', 'menus', 'images'));
         $this->set('_serialize', ['profileMenu']);
     }
 
@@ -115,5 +124,18 @@ class ProfileMenusController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    public function isAuthorized($user)
+    {
+        if ($this->request->getParam('action')==='add') {
+            return true;
+        }
+        if (in_array($this->request->getParam('action'),['edit','delete'])) {
+            $profileMenuId=(int)$this->request->getParam('pass.0');
+            if ($this->ProfileMenus->isOwnedBy($profileMenuId,$user['id'])) {
+                return true;
+            }
+        }
+        return parent::isAuthorized($user);
     }
 }

@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Profiles Controller
@@ -18,6 +19,11 @@ class ProfilesController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->Auth->allow(['Profilesjson']);
+    }
     public function mapa()
     {
 

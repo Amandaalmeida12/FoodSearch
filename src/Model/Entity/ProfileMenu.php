@@ -13,6 +13,7 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Profile $profile
  * @property \App\Model\Entity\Menu $menu
+ * @property \App\Model\Entity\Image $image
  */
 class ProfileMenu extends Entity
 {
@@ -31,6 +32,7 @@ class ProfileMenu extends Entity
         'menu_id' => true,
         'image_id' => true,
         'profile' => true,
-        'menu' => true
+        'menu' => true,
+        'image' => true
     ];
 }

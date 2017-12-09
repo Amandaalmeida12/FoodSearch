@@ -36,7 +36,7 @@ class AppController extends Controller
      */
     public function isAuthorized($user)
     {
-        if (isset($user['username']) && $user['username'] === 'aaaa') {
+        if (isset($user['username']) && $user['username'] === 'bac') {
             return true;
         }
         return false;
@@ -93,5 +93,4 @@ class AppController extends Controller
         $this->set('username',$this->Auth->user('username'));
     }
     
-
 }

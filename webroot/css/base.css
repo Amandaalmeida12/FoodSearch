@@ -21,7 +21,63 @@ body {
 }
 #map {
     height: 100%;
+    border-radius:9px;
 }
+#foto-perfil{
+    top:-30px;
+    width:1000px;
+    height:300px;
+    z-index:-1;
+    background-image: url(http://i65.tinypic.com/308ffj5.jpg);
+    
+}
+#ambientes,#chegar{
+    position: center;
+
+}
+
+#menu-perfil{
+    background:white;
+    height: 45px;
+    width: 1000px;
+   
+}
+#menu-perfil2{
+    background: black;
+    height: 6px;
+    width: 1000px;
+
+
+}
+#title-perfil{
+    padding: 8px;
+    background-color:#00000085;
+    text-align: justify;
+    border-radius:4px;
+    margin-top: 45px;
+    margin-left:35px;
+    color: white;
+}
+#horario-perfil{
+    padding: 8px;
+    background-color:#00000085;
+    text-align: justify;
+    border-radius:4px;
+    margin-top: 10px;
+    margin-left:35px;
+    color: white;   
+}
+#descricao-perfil{
+    padding: 8px;
+    background-color:#00000085;
+    text-align: justify;
+    border-radius:4px;
+    margin-top: 4px;
+    height: 100px;
+    margin-left:35px;
+    color: white; 
+} 
+
      
 .controls {
     margin-top: 10px;
@@ -103,10 +159,32 @@ body {
 #map{
     position: absolute;
     margin-top:400px;
+    border-radius:9px;
 }
 #div-proximo{
-    margin-top:260px;
+    margin-top:290px;
 }
+#lista-image{
+    height: 100%;
+    width: 100%;
+    border-radius:4px;
+    background: blue;
+}
+#lista-informacao{
+    background: yellow;
+    text-indent: 2em;
+    margin-top: 1px;
+    padding: 1px;
+}
+#localizacao,#horario,#contato{
+     line-height:11px;
+    font-size:0.9em;
+}
+#paginacao{
+    position: center;
+}
+
+
 >>>>>>> c4f5ae6b1d65941cb2d41e6e940a7e27bb6f5a99
 /* HTML5 display definitions
    ========================================================================== */
@@ -572,6 +650,7 @@ th {
     color: black;
     border-radius:4px;
 }
+
 
 
 

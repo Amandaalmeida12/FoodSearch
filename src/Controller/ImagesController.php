@@ -102,6 +102,7 @@ class ImagesController extends AppController
             }
             
             $image = $this->Images->patchEntity($image, $this->request->getData());
+            $image->user_id =$this->Auth->user( 'id' );
             if ($this->Images->save($image)) {
                 $this->Flash->success(__('The image has been saved.'));
 

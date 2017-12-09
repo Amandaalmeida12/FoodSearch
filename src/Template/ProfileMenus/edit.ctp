@@ -18,6 +18,8 @@
         <li><?= $this->Html->link(__('New Profile'), ['controller' => 'Profiles', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Menus'), ['controller' => 'Menus', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Menu'), ['controller' => 'Menus', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Images'), ['controller' => 'Images', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Image'), ['controller' => 'Images', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="profileMenus form large-9 medium-8 columns content">
@@ -27,7 +29,7 @@
         <?php
             echo $this->Form->control('profile_id', ['options' => $profiles]);
             echo $this->Form->control('menu_id', ['options' => $menus]);
-            echo $this->Form->control('image_id');
+            echo $this->Form->control('image_id', ['options' => $images]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
