@@ -23,6 +23,10 @@ body {
     height: 100%;
     border-radius:9px;
 }
+#pagina-perfil{
+    margin-top: -2px;
+
+}
 #foto-perfil{
     top:-30px;
     width:1000px;
@@ -31,9 +35,14 @@ body {
     background-image: url(http://i65.tinypic.com/308ffj5.jpg);
     
 }
-#ambientes,#chegar{
-    position: center;
+#ambientes-produtos,#chegar{
+    text-align: center;
 
+}
+
+#ambientes{
+
+    width: 1000px;
 }
 
 #menu-perfil{
@@ -77,7 +86,14 @@ body {
     margin-left:35px;
     color: white; 
 } 
-
+#ambientes-fotos{
+    height: 148px;
+    width: 158px;
+}
+#produtos-menu{
+    height: 148px;
+    width: 158px;
+}
      
 .controls {
     margin-top: 10px;
