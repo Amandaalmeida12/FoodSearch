@@ -22,7 +22,7 @@ class ProfileMenusController extends AppController
      public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        $this->Auth->allow(['index','view']);
+        $this->Auth->allow(['index','view','busca']);
     }
 
     public function index()
@@ -125,7 +125,7 @@ class ProfileMenusController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-    public function isAuthorized($user)
+    public function isAuthorized($user) 
     {
         if ($this->request->getParam('action')==='add') {
             return true;
@@ -137,5 +137,15 @@ class ProfileMenusController extends AppController
             }
         }
         return parent::isAuthorized($user);
+    }
+    public function busca()
+    {
+        if ($this->request->is('get')) {
+
+            'conditions' => ['ProfileMenus.title LIKE' => '%Ovens%']
+            ]);
+            $number = $query->count();
+        }
+
     }
 }

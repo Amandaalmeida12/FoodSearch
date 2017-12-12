@@ -70,11 +70,14 @@ $cakeDescription = 'Foodsearch';
 
 <header class="row">
     <div class="col-xs-12 col-sm-6 col-lg-12" class="img-responsive" alt="Imagem Responsiva" id="image-principal"></div>
-    <div class="col-xs-9 col-md-7 col-md-offset-2" id="busca"><input type="text" id="input-busca" name="buscar" placeholder="Digite o nome da Comida:">
+    <div class="col-xs-9 col-md-7 col-md-offset-2" id="busca">
+    <form action="/profileMenus/busca" method="get">
+    <input type="text"  id="input-busca" name="busca" placeholder="Digite o nome da Comida:">
     </div>
     <div  class="col-xs-3 col-md-3 col-md-offset-9" id="busca-submit">
     <input id="btn-busca" type="submit" value="Buscar">
     </div>
+    </form>
 </header>
 <div class="container" id="div-proximo">
     <div class="col-sm-5">
