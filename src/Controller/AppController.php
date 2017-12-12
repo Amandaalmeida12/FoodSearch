@@ -36,9 +36,11 @@ class AppController extends Controller
      */
     public function isAuthorized($user)
     {
-        if (isset($user['username']) && $user['username'] === 'bac') {
+        
+        if (isset($user['username']) && $user['username'] === 'admin') {
             return true;
         }
+       
         return false;
     }
     public function initialize()
@@ -60,8 +62,8 @@ class AppController extends Controller
                 'action'=>'index'
             ],
             'logoutRedirect'=>[
-                'controller'=>'Users',
-                'action'=>'login'
+                'controller'=>'ProfileMenus',
+                'action'=>'index'
             ]
         ]);
         /*

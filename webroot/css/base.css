@@ -187,10 +187,22 @@ body {
     background: blue;
 }
 #lista-informacao{
-    background: yellow;
+    
     text-indent: 2em;
     margin-top: 1px;
     padding: 1px;
+}
+ a:link {
+    color: black;
+}
+ a:visited {
+    color: black;
+}
+ a:hover {
+    color: green ;
+}
+ a:active {
+    color: green;
 }
 #localizacao,#horario,#contato{
      line-height:11px;

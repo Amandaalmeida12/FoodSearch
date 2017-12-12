@@ -57,8 +57,10 @@ $cakeDescription = 'Foodsearch';
      
       <li><?= $this->Html->link(__('Inicio'), ['controller' => 'profileMenus', 'action' => 'index']) ?></li>
       <li><?= $this->Html->link(__('Sobre nós'), ['controller' => 'Users', 'action' => 'sobrenos']) ?></li> 
-      <li><?= $this->Html->link(__('Cadastre-se'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-      <li><?= $this->Html->link(__('Acessar'), ['controller' => 'Users', 'action' => 'login']) ?></li>
+      <?php if (!isset($username)): ?>
+            <li><?= $this->Html->link(__('Cadastre-se'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+            <li><?= $this->Html->link(__('Acessar'), ['controller' => 'Users', 'action' => 'login']) ?></li>
+       <?php endif; ?>
      <?php if ($username): ?>
             <li><?= $this->Html->link(__('Logout'),['controller'=>'Users','action'=>'logout'])?></li>
         <?php endif; ?>
