@@ -140,12 +140,15 @@ class ProfileMenusController extends AppController
     }
     public function busca()
     {
-        if ($this->request->is('get')) {
-
-            'conditions' => ['ProfileMenus.title LIKE' => '%Ovens%']
-            ]);
-            $number = $query->count();
-        }
+       if ($this->request->is(['patch','post','put'])) {
+           $cat_ids=$this->request->data;
+           $profileMenus=$this->ProfileMenus->find('all')->Where(['id '=>$cat_ids])->toArray();
+           
+       }else{
+            echo "Ops!";
+       }
+       $this->set('profileMenus', $profileMenus);
+        $this->set('_serialize', ['profileMenus']);
 
     }
 }

@@ -1,3 +1,5 @@
+
+div.message
 .disabled a,
 a.disabled {
     pointer-events: none;
@@ -415,7 +417,7 @@ div.message {
     font-weight: normal;
     padding: 0 1.5rem 0 1.5rem;
     transition: height 300ms ease-out 0s;
-    background-color: #a0d3e8;
+    background-color: #00FF00 ;
     color: #626262;
     top: 15px;
     right: 15px;

@@ -86,11 +86,11 @@ class ProfilesController extends AppController
             $profile = $this->Profiles->patchEntity($profile, $this->request->getData());
             $profile->user_id=$this->Auth->user('id');
             if ($this->Profiles->save($profile)) {
-                $this->Flash->success(__('The profile has been saved.'));
+                $this->Flash->success(__('Cadastro realizado!'));
 
-                return $this->redirect(['controller' => 'ProfileMenus', 'action' => 'index']);
+                return $this->redirect(['controller' => 'Images', 'action' => 'add']);
             }
-            $this->Flash->error(__('The profile could not be saved. Please, try again.'));
+            $this->Flash->error(__('Erro ao efetuar o cadastro!'));
         }
         $users = $this->Profiles->Users->find('list', ['limit' => 200]);
         $this->set(compact('profile', 'users'));

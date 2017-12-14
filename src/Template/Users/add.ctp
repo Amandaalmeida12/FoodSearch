@@ -16,7 +16,7 @@
       <?= $this->Form->control('username',['label' => 'Usuário: ', 'class' => 'form-control form-rounded']) ?>
       <?= $this->Form->control('email',['label' => 'Email: ', 'class' => 'form-control form-rounded']) ?>
       <?= $this->Form->control('password',['label' => 'Senha: ', 'class' => 'form-control']) ?> 
-      <?= $this->Form->control('confirm_password',['label'=> 'Confirmar Sua Senha: ', 'type'=>'password'])
+      <?= $this->Form->control('confirm_password',['label'=> 'Confirmar Sua Senha: ', 'class' => 'form-control', 'type'=>'password'])
       ?>
     </div>
   </fieldset>

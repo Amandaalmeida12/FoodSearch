@@ -66,7 +66,7 @@ class MenusController extends AppController
             if ($this->Menus->save($menu)) {
                 $this->Flash->success(__('The menu has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'ProfileMenus', 'action' => 'add']);
             }
             $this->Flash->error(__('The menu could not be saved. Please, try again.'));
         }
@@ -100,7 +100,7 @@ class MenusController extends AppController
             if ($this->Menus->save($menu)) {
                 $this->Flash->success(__('The menu has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'ProfileMenus','action' => 'add']);
             }
             $this->Flash->error(__('The menu could not be saved. Please, try again.'));
         }

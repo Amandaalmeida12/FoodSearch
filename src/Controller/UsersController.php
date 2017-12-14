@@ -18,7 +18,7 @@ class UsersController extends AppController
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        $this->Auth->allow(['add','rememberPassword']);
+        $this->Auth->allow(['add','rememberPassword','sobrenos']);
     }
      public function sobrenos()
     {
@@ -62,10 +62,10 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
                 $this->getMailer('User')->send('welcome',[$user]);
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('Usuário cadastrado com sucesso!'));
                 return $this->redirect(['controller' => 'ProfileMenus', 'action' => 'add']);
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('Não foi possivel salvar usuário ou email já cadastrado! '));
         }
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
@@ -85,10 +85,10 @@ class UsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('Usuário editado com sucesso!'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('Não foi possivel editar o usuário!'));
         }
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
@@ -105,9 +105,9 @@ class UsersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been deleted.'));
+            $this->Flash->success(__('Usuário removido  com sucesso!'));
         } else {
-            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Não foi possivel remover o usuário!'));
         }
         return $this->redirect(['action' => 'index']);
     }

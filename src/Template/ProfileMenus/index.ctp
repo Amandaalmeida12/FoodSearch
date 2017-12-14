@@ -41,6 +41,7 @@ $cakeDescription = 'Foodsearch';
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->script('jquery.min.js') ?> 
     <?= $this->Html->script('mapa.js') ?> 
+    <?= $this->Html->script('mapa_cadastro.js') ?> 
     <?= $this->Html->css('cake.css') ?>
     <?= $this->Html->css('home.css') ?>
     <?= $this->Html->css('bootstrap.min.css') ?>
@@ -58,7 +59,7 @@ $cakeDescription = 'Foodsearch';
       <li><?= $this->Html->link(__('Inicio'), ['controller' => 'profileMenus', 'action' => 'index']) ?></li>
       <li><?= $this->Html->link(__('Sobre nós'), ['controller' => 'Users', 'action' => 'sobrenos']) ?></li> 
       <?php if (!isset($username)): ?>
-            <li><?= $this->Html->link(__('Cadastre-se'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+            <li><?= $this->Html->link(__('Cadastre a sua empresa'), ['controller' => 'Users', 'action' => 'add']) ?></li>
             <li><?= $this->Html->link(__('Acessar'), ['controller' => 'Users', 'action' => 'login']) ?></li>
        <?php endif; ?>
      <?php if ($username): ?>
@@ -71,11 +72,12 @@ $cakeDescription = 'Foodsearch';
 <header class="row">
     <div class="col-xs-12 col-sm-6 col-lg-12" class="img-responsive" alt="Imagem Responsiva" id="image-principal"></div>
     <div class="col-xs-9 col-md-7 col-md-offset-2" id="busca">
-    <form action="/profileMenus/busca" method="get">
-    <input type="text"  id="input-busca" name="busca" placeholder="Digite o nome da Comida:">
+    <form action="/profileMenus/busca" method="POST">
+    <input type="text"  id="input-busca"  placeholder="Digite o nome da Comida:">
     </div>
     <div  class="col-xs-3 col-md-3 col-md-offset-9" id="busca-submit">
     <input id="btn-busca" type="submit" value="Buscar">
+
     </div>
     </form>
 </header>

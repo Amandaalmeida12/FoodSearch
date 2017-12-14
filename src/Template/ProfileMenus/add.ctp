@@ -15,6 +15,7 @@
             echo $this->Form->control('image_id', ['options' => $images]);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Submit',['class'=>'btn btn-primary btn-lg btn-block'])) ?>
     <?= $this->Form->end() ?>
 </div>
+

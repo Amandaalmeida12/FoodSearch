@@ -29,8 +29,8 @@ $cakeDescription = 'Foodsearch';
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
     <?= $this->Html->script('jquery.min.js'); ?>  
-    <?= $this->Html->css('bootstrap.min.css'); ?>  
-    <?= $this->Html->script('bootstrap.min.js'); ?>  
+    <?= $this->Html->css('bootstrap.min.css'); ?>   
+    <?= $this->Html->script('mapa_cadastro.js'); ?>    
     
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -48,7 +48,7 @@ $cakeDescription = 'Foodsearch';
       <li><?= $this->Html->link(__('Sobre nós'), ['controller' => 'Users', 'action' => 'sobrenos']) ?></li> 
       <?php $user = $this->request->session()->read('Auth.User'); ?>
       <?php if (!isset($username)): ?>
-          <li><?= $this->Html->link(__('Cadastre-se'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+          <li><?= $this->Html->link(__('Cadastre a sua empresa'), ['controller' => 'Users', 'action' => 'add']) ?></li>
           <li><?= $this->Html->link(__('Acessar'), ['controller' => 'Users', 'action' => 'login']) ?></li>
       <?php endif; ?>
       <?php if ($username): ?>

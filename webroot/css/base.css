@@ -15,10 +15,25 @@ html {
 /**
  * Remove default margin.
  */
-
 body {
     margin: 0;
 }
+#fieldset_cadastro{
+    border: 2px solid #ddd;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+#borda-input{
+    border-radius: 2px;
+    height: 40px;
+
+}
+#descricao-input{
+    border-radius: 2px;
+    height: 80px;
+
+}
+#pac-input
 #map {
     height: 100%;
     border-radius:9px;
@@ -106,6 +121,7 @@ body {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
+#map
 #pac-input {
     background-color: #fff;
     font-family: Roboto;
@@ -114,7 +130,10 @@ body {
     margin-left: 12px;
     padding: 0 11px 0 13px;
     text-overflow: ellipsis;
-    width: 300px;
+    width: 50px;
+    border-radius: 4px;
+    margin-top: 9px;
+    height: 35px;
 }
 
 #pac-input:focus {
@@ -153,7 +172,7 @@ body {
    margin-left: 500px;
    margin-top: -350px;
 }
-
+#pac-input
 
 #username,#password,#email{
     border-radius: 5px;
@@ -170,7 +189,14 @@ body {
   
 
 }
+#progesso{
+    height: 28px;
+    width: 400px;
 
+}
+#mapa{
+
+}
 =======
 #map{
     position: absolute;

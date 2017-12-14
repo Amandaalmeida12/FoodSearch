@@ -69,7 +69,7 @@ class ImagesController extends AppController
             if ($this->Images->save($image)) {
                 $this->Flash->success(__('The image has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Menus', 'action' => 'add']);
             }
             $this->Flash->error(__('The image could not be saved. Please, try again.'));
         }
