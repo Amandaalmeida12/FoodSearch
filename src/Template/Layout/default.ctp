@@ -20,6 +20,7 @@ $cakeDescription = 'Foodsearch';
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <title>
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
@@ -63,6 +64,20 @@ $cakeDescription = 'Foodsearch';
     <div class="container clearfix">
         <?= $this->fetch('content') ?>
     </div>
-    
+     <footer>
+    <div class="container">
+      <p> FoodSearch <br>
+        Email: foodsearch@gmail.com<br>
+        Telefone: XXXX-XXX-XXX </p>
+        <i class="fa fa-facebook-square"></i></a>
+        <i class="fa fa-instagram" aria-hidden="true"></i>
+        <i class="fa fa-twitter" aria-hidden="true"></i>
+        <div id="autoral">
+          © Copyright 2017 Foodsearch.com.br - All Rights Reserved - Legal
+        </div>
+
+
+    </div>
+    </footer>
 </body>
 </html>

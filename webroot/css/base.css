@@ -186,9 +186,9 @@ body {
     margin-top: -150px;
     background: #e7e7e7;
     position: fixed;
-  
-
+    color: red;
 }
+
 #progesso{
     height: 28px;
     width: 400px;
@@ -236,6 +236,10 @@ body {
 }
 #paginacao{
     position: center;
+}
+#autoral{
+    margin-left: 33%;
+    margin-top: -19px
 }
 
 
