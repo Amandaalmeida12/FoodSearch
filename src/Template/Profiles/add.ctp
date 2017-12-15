@@ -49,7 +49,7 @@
         <?php
             echo $this->Form->control('contact',['label'=>'Telefone','id'=>'borda-input']);
             echo $this->Form->control('description',['label'=>'Descrição da Empresa','id'=>'descricao-input']);
-            echo $this->Form->control('photo',['type'=>'file','label'=>'Insira foto de perfil']);
+            echo $this->Form->control('photo',['type'=>'file','label'=>'Insira foto de perfil','id'=>'borda-input']);
         ?> 
     </fieldset>
 

@@ -140,15 +140,17 @@ class ProfileMenusController extends AppController
     }
     public function busca()
     {
-       if ($this->request->is(['patch','post','put'])) {
-           $cat_ids=$this->request->data;
-           $profileMenus=$this->ProfileMenus->find('all')->Where(['id '=>$cat_ids])->toArray();
-           
-       }else{
-            echo "Ops!";
-       }
-       $this->set('profileMenus', $profileMenus);
-        $this->set('_serialize', ['profileMenus']);
+      /* if ($this->request->is(['patch','post','put'])) {
+           $buscar=$_POST['buscar'];
+           $query = $this->ProfileMenus->find("all",array('condition'=>array('menus LIKE'=>"buscar%")));
+           $row=mysql_query($query);
+           $numrows=mysql_num_rows($row);
 
-    }
+            
+
+        }*/
+        
+       
+     }      
+
 }

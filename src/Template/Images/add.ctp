@@ -25,8 +25,8 @@
     <?= $this->Form->create($image,['type'=>'file']) ?>
         <legend><?= __('Insira imagem do ambiente  da empresa') ?></legend>
         <?php
-            echo $this->Form->control('photo',['type'=>'file','label'=>'Insira a imagem']);
-            echo $this->Form->control('profile_id', ['options' => $profiles,'label'=>'Nome da Empresa Cadastrada']);
+            echo $this->Form->control('photo',['type'=>'file','label'=>'Insira a imagem','id'=>'borda-input']);
+            echo $this->Form->control('profile_id', ['options' => $profiles,'label'=>'Nome da Empresa Cadastrada','id'=>'borda-input']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Próximo'), array('type' => 'submit', 'class' => 'btn btn-block btn-success btn-lg')); ?>

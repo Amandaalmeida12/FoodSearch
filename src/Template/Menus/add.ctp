@@ -23,11 +23,11 @@
 
  <fieldset id="fieldset_cadastro">
         <?= $this->Form->create($menu,['type'=>'file']) ?>
-        <legend><?= __('Cadastro da Empresa') ?></legend>
+        <legend><?= __('Cadastrar um prato') ?></legend>
 
         <?php
              echo $this->Form->control('title',['label'=>'Nome do Prato','placeholder'=>'Digite o nome do prato','class'=>'col-xs-4','id'=>'borda-input']); 
-            echo $this->Form->control('photo',['label'=>'Insira a Foto','type'=>'file']);
+            echo $this->Form->control('photo',['label'=>'Insira a Foto','type'=>'file','id'=>'borda-input']);
             echo $this->Form->control('description',['label'=>'Descrição do Prato','class'=>'form-control','placeholder'=>'Descrição do prato','id'=>'descricao-input']); 
             echo $this->Form->control('category',['label'=>'Categoria','class'=>'form-control','placeholder'=>'Categoria do prato','id'=>'borda-input']);
             echo $this->Form->control('price',['label'=>'Preço','class'=>'form-control','placeholder'=>'Preço:R$ xx,xx','id'=>'borda-input']); 

@@ -44,7 +44,7 @@ $cakeDescription = 'Foodsearch';
     </div>
     <ul class="nav navbar-nav">
      
-      <li><?= $this->Html->link(__('Inicio'), ['controller' => '', 'action' => '']) ?></li>
+      <li><?= $this->Html->link(__('Inicio'), ['controller' => 'ProfileMenus', 'action' => 'index']) ?></li>
       <li><?= $this->Html->link(__('Sobre nós'), ['controller' => 'Users', 'action' => 'sobrenos']) ?></li> 
       <?php $user = $this->request->session()->read('Auth.User'); ?>
       <?php if (!isset($username)): ?>
